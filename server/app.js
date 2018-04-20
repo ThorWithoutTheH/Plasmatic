@@ -100,6 +100,26 @@ app.use('/users', users);
 app.use('/token', tokensApi);
 app.use('/api', boat);
 
+var fs = require('fs');
+
+// Converts XML to jSON
+var convert = require('xml-js');
+var xml = require('fs').readFileSync('./XML/espiSchema.xsd', 'utf8');
+var options = {ignoreComment: true, alwaysChildren: true};
+var result = convert.xml2json(xml, options); // or convert.xml2json(xml, options)
+
+
+var jSONData = JSON.parse(result);
+
+fs.writeFile('xml.json', result, finished);
+
+app.get("/api/xml",function(req,res,next) {
+    res.json(jSONData);
+});
+
+function finished() {
+    console.log("finished");
+}
 // set passport
 app.set('port', config.port);
 
