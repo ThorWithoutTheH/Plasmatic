@@ -1,1 +1,2207 @@
-{"declaration":{"attributes":{"version":"1.0","encoding":"utf-8"}},"elements":[{"type":"element","name":"xs:schema","attributes":{"xmlns:xs":"http://www.w3.org/2001/XMLSchema","xmlns":"http://naesb.org/espi","targetNamespace":"http://naesb.org/espi","elementFormDefault":"qualified","attributeFormDefault":"unqualified","version":"0.7"},"elements":[{"type":"element","name":"xs:import","attributes":{"namespace":"http://www.w3.org/2005/Atom","schemaLocation":"atom.xsd"},"elements":[]},{"type":"element","name":"xs:complexType","attributes":{"name":"ApplicationInformation"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"Contains information about a Third Party Application requesting access to the DataCustodian services. Information requested may include items such as Organization Name, Website, Contact Info, Application Name, Description, Icon, Type, default Notification and Callback endpoints, and may also include agreement with terms of service."}]}]},{"type":"element","name":"xs:complexContent","elements":[{"type":"element","name":"xs:extension","attributes":{"base":"IdentifiedObject"},"elements":[{"type":"element","name":"xs:sequence","elements":[{"type":"element","name":"xs:element","attributes":{"name":"dataCustodianApplicationStatus","type":"UInt8","minOccurs":"0","maxOccurs":"1"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"A code indicating the current status of the application. This value is provided by Data Custodian, cannot be modified by Third Party.\r\nDefined statuses are:\r\n1 - Review\r\n2 - Production (Live)\r\n3 - On hold \r\n4 - Revoked"}]}]}]},{"type":"element","name":"xs:element","attributes":{"name":"dataCustodianDefaultBatchResource","type":"xs:anyURI","minOccurs":"0","maxOccurs":"1"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"The default endpoint for Batch requests. This value is provided by Data Custodian, updated in approved applications objects, and cannot be modified by Third Party."}]}]}]},{"type":"element","name":"xs:element","attributes":{"name":"dataCustodianDefaultSubscriptionResource","type":"xs:anyURI","minOccurs":"0","maxOccurs":"1"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"The default endpoint for Subscription requests. This value is provided by Data Custodian, updated in approved applications objects, cannot be modified by Third Party."}]}]}]},{"type":"element","name":"xs:element","attributes":{"name":"dataCustodianThirdPartyId","type":"String32","minOccurs":"0","maxOccurs":"1"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"A key to be associated with this application, to be provided in OAuth requests. This value is provided by Data Custodian."}]}]}]},{"type":"element","name":"xs:element","attributes":{"name":"dataCustodianThirdPartySecret","type":"String32","minOccurs":"0","maxOccurs":"1"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"A secret to be associated with this application, used to sign OAuth requests. This value is provided by Data Custodian."}]}]}]},{"type":"element","name":"xs:element","attributes":{"name":"thirdPartyApplicationDescription","type":"String256","minOccurs":"0","maxOccurs":"1"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"A description of the application."}]}]}]},{"type":"element","name":"xs:element","attributes":{"name":"thirdPartyApplicationLogo","type":"xs:anyURI","minOccurs":"0","maxOccurs":"1"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"The link to the logo image for the application. Size greater than 180 x 150 may be cropped or reduced."}]}]}]},{"type":"element","name":"xs:element","attributes":{"name":"thirdPartyApplicationName","type":"String32","minOccurs":"0","maxOccurs":"1"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"The name of the application to which access will be granted."}]}]}]},{"type":"element","name":"xs:element","attributes":{"name":"thirdPartyApplicationStatus","type":"UInt8","minOccurs":"0","maxOccurs":"1"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"A code indicating the current status of the application. \r\nDefined statuses are:\r\n1 - Development\r\n2 - Review / Test\r\n3 - Production (Live)\r\n4 - Retired (Remove)"}]}]}]},{"type":"element","name":"xs:element","attributes":{"name":"thirdPartyApplicationType","type":"UInt8","minOccurs":"0","maxOccurs":"1"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"A code indicating the type of the application. \r\nDefined types are:\r\n1 - Web Application\r\n2 - Desktop Application\r\n3 - Mobile Application"}]}]}]},{"type":"element","name":"xs:element","attributes":{"name":"thirdPartyApplicationUse","type":"UInt8","minOccurs":"0","maxOccurs":"1"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"A code indicating the expected use of the application. \r\nDefined uses are:\r\n1 - Energy management\r\n2 - Comparisons\r\n3 - Government\r\n4 - Academic\r\n5 - Law enforcement"}]}]}]},{"type":"element","name":"xs:element","attributes":{"name":"thirdPartyApplicationWebsite","type":"xs:anyURI","minOccurs":"0","maxOccurs":"1"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"The link to the main page of the application."}]}]}]},{"type":"element","name":"xs:element","attributes":{"name":"thirdPartyDefaultBatchResource","type":"xs:anyURI","minOccurs":"0","maxOccurs":"1"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"The default endpoint for asynchronous delivery of Batch data using push."}]}]}]},{"type":"element","name":"xs:element","attributes":{"name":"thirdPartyDefaultNotifyResource","type":"xs:anyURI","minOccurs":"0","maxOccurs":"1"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"The default endpoint for Third Party notification of Batch data availability  that is then requested from the Data Custodian via the Batch resource."}]}]}]},{"type":"element","name":"xs:element","attributes":{"name":"thirdPartyDefaultOAuthCallback","type":"xs:anyURI","minOccurs":"0","maxOccurs":"1"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"The default redirect back to the application after authorization grant."}]}]}]},{"type":"element","name":"xs:element","attributes":{"name":"thirdPartyEmail","type":"String64","minOccurs":"0","maxOccurs":"1"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"The e-mail address of the organization to which access will be granted. (For debugging - not to be shared with customers)"}]}]}]},{"type":"element","name":"xs:element","attributes":{"name":"thirdPartyName","type":"String64","minOccurs":"0","maxOccurs":"1"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"The name of the organization to which access will be granted."}]}]}]},{"type":"element","name":"xs:element","attributes":{"name":"thirdPartyPhone","type":"String32","minOccurs":"0","maxOccurs":"1"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"The phone number of the organization to which access will be granted. (For debugging - not to be shared with customers)"}]}]}]}]}]}]}]},{"type":"element","name":"xs:complexType","attributes":{"name":"Authorization"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"Represents a permission granted by an owner for access to a resource."}]}]},{"type":"element","name":"xs:complexContent","elements":[{"type":"element","name":"xs:extension","attributes":{"base":"IdentifiedObject"},"elements":[{"type":"element","name":"xs:sequence","elements":[{"type":"element","name":"xs:element","attributes":{"name":"accessToken","minOccurs":"0","maxOccurs":"1","type":"String32"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"Contains the access token associated with this authorization."}]}]}]},{"type":"element","name":"xs:element","attributes":{"name":"authorizationServer","minOccurs":"0","maxOccurs":"1","type":"xs:anyURI"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"Contains the URI link to the authorization endpoint associated with this authorization."}]}]}]},{"type":"element","name":"xs:element","attributes":{"name":"authorizedPeriod","minOccurs":"0","maxOccurs":"1","type":"DateTimeInterval"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"Restricts access to requests or subscriptions within this date time interval."}]}]}]},{"type":"element","name":"xs:element","attributes":{"name":"publishedPeriod","minOccurs":"0","maxOccurs":"1","type":"DateTimeInterval"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"Restricts access to the objects within the associated resource that were published within this date time interval."}]}]}]},{"type":"element","name":"xs:element","attributes":{"name":"resource","minOccurs":"0","maxOccurs":"1","type":"xs:anyURI"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"Contains the identifier of the resource, same as was specified in OAuth \"scope\"."}]}]}]},{"type":"element","name":"xs:element","attributes":{"name":"status","minOccurs":"0","maxOccurs":"1","type":"UInt8"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"The status of this authorization. \r\n0 - Revoked\r\n1 - Active"}]}]}]},{"type":"element","name":"xs:element","attributes":{"name":"thirdParty","minOccurs":"0","maxOccurs":"1","type":"String32"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"Contains the identifier for the Third Party."}]}]}]}]}]}]}]},{"type":"element","name":"xs:complexType","attributes":{"name":"IntervalBlock"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"Time sequence of Readings of the same ReadingType."}]}]},{"type":"element","name":"xs:complexContent","elements":[{"type":"element","name":"xs:extension","attributes":{"base":"IdentifiedObject"},"elements":[{"type":"element","name":"xs:sequence","elements":[{"type":"element","name":"xs:element","attributes":{"name":"interval","minOccurs":"0","maxOccurs":"1","type":"DateTimeInterval"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"Specifies the time period during which the contained readings were taken."}]}]}]},{"type":"element","name":"xs:element","attributes":{"name":"IntervalReading","type":"IntervalReading","minOccurs":"0","maxOccurs":"unbounded"},"elements":[]}]}]}]}]},{"type":"element","name":"xs:complexType","attributes":{"name":"IntervalReading"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"Specific value measured by a meter or other asset. Each Reading is associated with a specific ReadingType."}]}]},{"type":"element","name":"xs:complexContent","elements":[{"type":"element","name":"xs:extension","attributes":{"base":"Object"},"elements":[{"type":"element","name":"xs:sequence","elements":[{"type":"element","name":"xs:element","attributes":{"name":"cost","minOccurs":"0","maxOccurs":"1","type":"UInt48"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"Specifies a cost associated with this reading, in hundred-thousandths of the currency specified in the ReadingType for this reading.  (e.g., 840 = USD, US dollar)"}]}]}]},{"type":"element","name":"xs:element","attributes":{"name":"ReadingQuality","type":"ReadingQuality","minOccurs":"0","maxOccurs":"unbounded"},"elements":[]},{"type":"element","name":"xs:element","attributes":{"name":"timePeriod","minOccurs":"0","maxOccurs":"1","type":"DateTimeInterval"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"The date time and duration of a reading. If not specified, readings for each \"intervalLength\" in ReadingType are present."}]}]}]},{"type":"element","name":"xs:element","attributes":{"name":"value","minOccurs":"0","maxOccurs":"1","type":"UInt48"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"Value in units specified by ReadingType"}]}]}]}]}]}]}]},{"type":"element","name":"xs:complexType","attributes":{"name":"MeterReading"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"Set of values obtained from the meter."}]}]},{"type":"element","name":"xs:complexContent","elements":[{"type":"element","name":"xs:extension","attributes":{"base":"IdentifiedObject"},"elements":[]}]}]},{"type":"element","name":"xs:complexType","attributes":{"name":"ReadingQuality"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"Quality of a specific reading value or interval reading value. Note that more than one Quality may be applicable to a given Reading. Typically not used unless problems or unusual conditions occur (i.e., quality for each Reading is assumed to be 'Good' (valid) unless stated otherwise in associated ReadingQuality)."}]}]},{"type":"element","name":"xs:complexContent","elements":[{"type":"element","name":"xs:extension","attributes":{"base":"Object"},"elements":[{"type":"element","name":"xs:sequence","elements":[{"type":"element","name":"xs:element","attributes":{"name":"quality","minOccurs":"1","maxOccurs":"1","type":"QualityOfReading"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"Quality, to be specified if different than ReadingType.defaultQuality.\r\n\r\nThe specific format  is specified per the standard is defined in QualityOfReading."}]}]}]}]}]}]}]},{"type":"element","name":"xs:complexType","attributes":{"name":"ReadingType"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"Characteristics associated with all Readings included in a MeterReading."}]}]},{"type":"element","name":"xs:complexContent","elements":[{"type":"element","name":"xs:extension","attributes":{"base":"IdentifiedObject"},"elements":[{"type":"element","name":"xs:sequence","elements":[{"type":"element","name":"xs:element","attributes":{"name":"accumulationBehaviour","minOccurs":"0","maxOccurs":"1","type":"AccumulationBehaviourType"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"Code indicating how value is accumulated over time for Readings of ReadingType. The list of valid values per the standard are defined in AccumulationBehaviorType.\r\n\r\nExamples are:\r\n0 = Not Applicable\r\n1 = BulkQuantity\r\n3 = Cumulative"}]}]}]},{"type":"element","name":"xs:element","attributes":{"name":"commodity","minOccurs":"0","maxOccurs":"1","type":"CommodityType"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"Code for commodity classification of Readings of ReadingType. The valid values per the standard are defined in CommodityType.\r\n\r\nExamples are:\r\n0 = Not Applicable\r\n1 = Electricity secondary metered value (a premise meter is typically a secondary meter)\r\n2 = Electricity primary metered value\r\n4 = Air\r\n7 = NaturalGas"}]}]}]},{"type":"element","name":"xs:element","attributes":{"name":"consumptionTier","minOccurs":"0","maxOccurs":"1","type":"ConsumptionTierType"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"Code for consumption tier associated with a Reading of ReadingType. The valid values are define in ConsumptionTierType.\r\n\r\nExamples are:\r\n0 = Not Applicable\r\n1 = Block Tier 1\r\n2 = Block Tier 2"}]}]}]},{"type":"element","name":"xs:element","attributes":{"name":"currency","minOccurs":"0","maxOccurs":"1","type":"CurrencyCode"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"Code for the currency for costs associated with this ReadingType.  The valid values per the standard are defined in CurrencyCode.\r\n\r\nExamples are:\r\n0 - Not Applicable\r\n36 - Australian Dollar\r\n124 - Canadian Dollar\r\n840 - US Dollar\r\n978 - Euro"}]}]}]},{"type":"element","name":"xs:element","attributes":{"name":"dataQualifier","minOccurs":"0","maxOccurs":"1","type":"DataQualifierType"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"Code describing a salient attribute of Readings of ReadingType. Valid values per the standard are defined in DataQualifierType.\r\n\r\nExamples are:\r\n0 = Not Applicable\r\n2 = Average"}]}]}]},{"type":"element","name":"xs:element","attributes":{"name":"defaultQuality","minOccurs":"0","maxOccurs":"1","type":"QualityOfReading"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"Default value to be used if no value of ReadingQuality.quality is provided.  \r\n\r\nSpecific format and valid values per the standard are specified in QualityOfReading."}]}]}]},{"type":"element","name":"xs:element","attributes":{"name":"flowDirection","minOccurs":"0","maxOccurs":"1","type":"FlowDirectionType"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"Direction associated with current related Readings. valid values per the standard are defined in FlowDirectionType.\r\n\r\nExamples are:\r\n0 = Not Applicable\r\n1 = Forward\r\n19 = Reverse"}]}]}]},{"type":"element","name":"xs:element","attributes":{"name":"intervalLength","minOccurs":"0","maxOccurs":"1","type":"UInt32"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"Default interval length specified in seconds for Readings of ReadingType."}]}]}]},{"type":"element","name":"xs:element","attributes":{"name":"kind","minOccurs":"0","maxOccurs":"1","type":"KindType"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"Code for general classification of a Reading of ReadingType. Valid values per the standard are defined in KindType.\r\n\r\nExamples are:\r\n\r\n0 = Not Applicable\r\n3 = Currency\r\n8 = Demand"}]}]}]},{"type":"element","name":"xs:element","attributes":{"name":"phase","minOccurs":"0","maxOccurs":"1","type":"PhaseCode"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"Code for phase information associated with Readings of ReadingType. Valid values per the standard are defined in PhaseCode.\r\n\r\nExamples are:\r\n0 = Not Applicable\r\n129 = Phase AN\r\n128 = Phase A\r\n132 = Phase AB"}]}]}]},{"type":"element","name":"xs:element","attributes":{"name":"powerOfTenMultiplier","minOccurs":"0","maxOccurs":"1","type":"PowerOfTenMultiplierType"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"Code for the power of ten multiplier which, when used in combination with the uom, specifies the actual unit of measure for Readings of ReadingType. Valid values per the standard are defined in PowerOfTenMultiplierType.\r\n\r\nExamples are:\r\n0 = None\r\n1 = deca=x10\r\n2 = hecto=x100\r\n-3 = mili=x10-3"}]}]}]},{"type":"element","name":"xs:element","attributes":{"name":"timeAttribute","minOccurs":"0","maxOccurs":"1","type":"TimeAttributeType"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"Code used to specify a particular type of time interval method for Readings of ReadingType. Valid values per the standard are defined in TimeAttributeType.\r\n\r\nExamplesare:\r\n0 = Not Applicable\r\n1 = 10-minute\r\n2 = 15-minute"}]}]}]},{"type":"element","name":"xs:element","attributes":{"name":"tou","minOccurs":"0","maxOccurs":"1","type":"TOUType"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"Code for the TOU type of Readings of ReadingType. valid values per the standard are defined in TOUType.\r\nExamples are:\r\n0 = NotApplicable\r\n1 = TOU A\r\n2 = TOU B"}]}]}]},{"type":"element","name":"xs:element","attributes":{"name":"uom","minOccurs":"0","maxOccurs":"1","type":"UomType"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"Code for the base unit of measure for Readings of ReadingType.  Used in combination with the powerOfTenMultiplier to specify the actual unit of measure. Valid values per the standard are defined in UomType.\r\n\r\nExamples are:\r\n0 = Not Applicable\r\n5 = A (Current)\r\n29 = Voltage"}]}]}]}]}]}]}]},{"type":"element","name":"xs:complexType","attributes":{"name":"IdentifiedObject"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"This is a root class to provide common naming attributes for all classes needing naming attributes."}]}]},{"type":"element","name":"xs:complexContent","elements":[{"type":"element","name":"xs:extension","attributes":{"base":"Object"},"elements":[{"type":"element","name":"xs:sequence","elements":[{"type":"element","name":"xs:element","attributes":{"name":"BatchItemInfo","type":"BatchItemInfo","minOccurs":"0","maxOccurs":"1"},"elements":[]}]}]}]}]},{"type":"element","name":"xs:complexType","attributes":{"name":"ServiceCategory"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"Category of service provided to the customer."}]}]},{"type":"element","name":"xs:complexContent","elements":[{"type":"element","name":"xs:extension","attributes":{"base":"Object"},"elements":[{"type":"element","name":"xs:sequence","elements":[{"type":"element","name":"xs:element","attributes":{"name":"kind","minOccurs":"1","maxOccurs":"1","type":"ServiceKind"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"Service classification\r\nExamples are:\r\n0 - electricity\r\n1 - gas\r\n\r\nThe list of specific valid values per the standard are itemized in ServiceKind."}]}]}]}]}]}]}]},{"type":"element","name":"xs:complexType","attributes":{"name":"UsagePoint"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"Logical point on a network at which consumption or production is either physically measured (e.g., metered) or estimated (e.g., unmetered street lights)."}]}]},{"type":"element","name":"xs:complexContent","elements":[{"type":"element","name":"xs:extension","attributes":{"base":"IdentifiedObject"},"elements":[{"type":"element","name":"xs:sequence","elements":[{"type":"element","name":"xs:element","attributes":{"name":"roleFlags","minOccurs":"0","maxOccurs":"1","type":"HexBinary16"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"Specifies the roles that this usage point has been assigned.\r\nBit 1 - isMirror\r\nBit 2 - isPremisesAggregationPoint\r\nBit 3 - isPEV\r\nBit 4 - isDER\r\nBit 5 - isRevenueQuality\r\nBit 6 - isDC\r\nBit 7-16 - Reserved"}]}]}]},{"type":"element","name":"xs:element","attributes":{"name":"ServiceCategory","type":"ServiceCategory","minOccurs":"0","maxOccurs":"1"},"elements":[]},{"type":"element","name":"xs:element","attributes":{"name":"status","minOccurs":"0","maxOccurs":"1","type":"UInt8"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"Specifies the current status of this usage point.\r\n\r\nValid values include:\r\n\r\n0 = off\r\n1 = on"}]}]}]}]}]}]}]},{"type":"element","name":"xs:complexType","attributes":{"name":"ElectricPowerQualitySummary"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"A summary of power quality events. This information represents a summary of power quality information typically required by customer facility energy management systems. It is not intended to satisfy the detailed requirements of power quality monitoring. All values are as defined by measurementProtocol during the period. The standards typically also give ranges of allowed values; the information attributes are the raw measurements, not the \"yes/no\" determination by the various standards. See referenced standards for definition, measurement protocol  and period."}]}]},{"type":"element","name":"xs:complexContent","elements":[{"type":"element","name":"xs:extension","attributes":{"base":"IdentifiedObject"},"elements":[{"type":"element","name":"xs:sequence","elements":[{"type":"element","name":"xs:element","attributes":{"name":"flickerPlt","minOccurs":"0","maxOccurs":"1","type":"Int48"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"A measurement of long term Rapid Voltage Change in hundredths of a Volt.\r\n\r\nflickerPlt is derived from 2 hours of Pst values (12 values combined in cubic relationship)."}]}]}]},{"type":"element","name":"xs:element","attributes":{"name":"flickerPst","minOccurs":"0","maxOccurs":"1","type":"Int48"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"flickerPst is a value measured over 10 minutes that characterizes the likelihood that the voltage fluctuations would result in perceptible light flicker. A value of 1.0 is designed to represent the level that 50% of people would perceive flicker in a 60 watt incandescent bulb. \r\n\r\nThe value reported is represented as an integer in hundredths."}]}]}]},{"type":"element","name":"xs:element","attributes":{"name":"harmonicVoltage","minOccurs":"0","maxOccurs":"1","type":"Int48"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"A measurement of the Harmonic Voltage during the period. For DC, distortion is with respect to a signal of zero Hz."}]}]}]},{"type":"element","name":"xs:element","attributes":{"name":"longInterruptions","minOccurs":"0","maxOccurs":"1","type":"Int48"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"A count of Long Interruption events (as defined by measurementProtocol) during the summary interval period."}]}]}]},{"type":"element","name":"xs:element","attributes":{"name":"mainsVoltage","minOccurs":"0","maxOccurs":"1","type":"Int48"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"A measurement of the Mains [Signaling] Voltage during the summary interval period in uV."}]}]}]},{"type":"element","name":"xs:element","attributes":{"name":"measurementProtocol","minOccurs":"0","maxOccurs":"1","type":"UInt8"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"A reference to the source standard used as the measurement protocol definition. \r\n\r\nExamples are:\r\n0 = \"IEEE1519-2009\"\r\n1 = \"EN50160\""}]}]}]},{"type":"element","name":"xs:element","attributes":{"name":"powerFrequency","minOccurs":"0","maxOccurs":"1","type":"Int48"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"A measurement of the power frequency during the summary interval period in uHz."}]}]}]},{"type":"element","name":"xs:element","attributes":{"name":"rapidVoltageChanges","minOccurs":"0","maxOccurs":"1","type":"Int48"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"A count of Rapid Voltage Change events during the summary interval period"}]}]}]},{"type":"element","name":"xs:element","attributes":{"name":"shortInterruptions","minOccurs":"0","maxOccurs":"1","type":"Int48"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"A count of Short Interruption events during the summary interval period"}]}]}]},{"type":"element","name":"xs:element","attributes":{"name":"summaryInterval","minOccurs":"1","maxOccurs":"1","type":"DateTimeInterval"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"Interval of summary period"}]}]}]},{"type":"element","name":"xs:element","attributes":{"name":"supplyVoltageDips","minOccurs":"0","maxOccurs":"1","type":"Int48"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"A count of Supply Voltage Dip events during the summary interval period"}]}]}]},{"type":"element","name":"xs:element","attributes":{"name":"supplyVoltageImbalance","minOccurs":"0","maxOccurs":"1","type":"Int48"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"A count of Supply Voltage Imbalance events during the summary interval period"}]}]}]},{"type":"element","name":"xs:element","attributes":{"name":"supplyVoltageVariations","minOccurs":"0","maxOccurs":"1","type":"Int48"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"A count of Supply Voltage Variations during the summary interval period"}]}]}]},{"type":"element","name":"xs:element","attributes":{"name":"tempOvervoltage","minOccurs":"0","maxOccurs":"1","type":"Int48"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"A count of Temporary Overvoltage events (as defined by measurementProtocol) during the summary interval period"}]}]}]}]}]}]}]},{"type":"element","name":"xs:complexType","attributes":{"name":"ElectricPowerUsageSummary"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"Summary of usage for a billing period"}]}]},{"type":"element","name":"xs:complexContent","elements":[{"type":"element","name":"xs:extension","attributes":{"base":"IdentifiedObject"},"elements":[{"type":"element","name":"xs:sequence","elements":[{"type":"element","name":"xs:element","attributes":{"name":"billingPeriod","minOccurs":"0","maxOccurs":"1","type":"DateTimeInterval"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"The billing period to which the included measurements apply"}]}]}]},{"type":"element","name":"xs:element","attributes":{"name":"billLastPeriod","minOccurs":"0","maxOccurs":"1","type":"Int48"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"The amount of the bill for the previous billing period , in hundred-thousandths of the currency specified in the ReadingType for this reading (e.g., 840 = USD, US dollar)."}]}]}]},{"type":"element","name":"xs:element","attributes":{"name":"billToDate","minOccurs":"0","maxOccurs":"1","type":"Int48"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"The bill amount related to the billing period as of the date received, in hundred-thousandths of the currency specified in the ReadingType for this reading. (e.g., 840 = USD, US dollar)."}]}]}]},{"type":"element","name":"xs:element","attributes":{"name":"costAdditionalLastPeriod","minOccurs":"0","maxOccurs":"1","type":"Int48"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"Additional charges from the last billing period, in hundred-thousandths of the currency specified in the ReadingType for this reading.  (e.g., 840 = USD, US dollar)."}]}]}]},{"type":"element","name":"xs:element","attributes":{"name":"currency","minOccurs":"0","maxOccurs":"1","type":"CurrencyCode"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"The ISO 4217 code indicating the currency applicable to the bill amounts in the summary. See list at http://tiny.cc/4217"}]}]}]},{"type":"element","name":"xs:element","attributes":{"name":"currentBillingPeriodOverAllConsumption","minOccurs":"0","maxOccurs":"1","type":"SummaryMeasurement"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"The total consumption for the billing period"}]}]}]},{"type":"element","name":"xs:element","attributes":{"name":"currentDayLastYearNetConsumption","minOccurs":"0","maxOccurs":"1","type":"SummaryMeasurement"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"The amount of energy consumed one year ago interpreted as same day of week same week of year (see ISO 8601)."}]}]}]},{"type":"element","name":"xs:element","attributes":{"name":"currentDayNetConsumption","minOccurs":"0","maxOccurs":"1","type":"SummaryMeasurement"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"Net consumption for the current day (delivered - received)"}]}]}]},{"type":"element","name":"xs:element","attributes":{"name":"currentDayOverallConsumption","minOccurs":"0","maxOccurs":"1","type":"SummaryMeasurement"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"Overall energy consumption for the current day"}]}]}]},{"type":"element","name":"xs:element","attributes":{"name":"peakDemand","minOccurs":"0","maxOccurs":"1","type":"SummaryMeasurement"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"Peak demand recorded for the current period"}]}]}]},{"type":"element","name":"xs:element","attributes":{"name":"previousDayLastYearOverallConsumption","minOccurs":"0","maxOccurs":"1","type":"SummaryMeasurement"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"The amount of energy consumed on the previous day one year ago interpreted as same day of week same week of year  (see ISO 8601)."}]}]}]},{"type":"element","name":"xs:element","attributes":{"name":"previousDayNetConsumption","minOccurs":"0","maxOccurs":"1","type":"SummaryMeasurement"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"Net consumption for the previous day"}]}]}]},{"type":"element","name":"xs:element","attributes":{"name":"previousDayOverallConsumption","minOccurs":"0","maxOccurs":"1","type":"SummaryMeasurement"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"The total consumption for the previous day"}]}]}]},{"type":"element","name":"xs:element","attributes":{"name":"qualityOfReading","minOccurs":"0","maxOccurs":"1","type":"QualityOfReading"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"Indication of the quality of the summary readings"}]}]}]},{"type":"element","name":"xs:element","attributes":{"name":"ratchetDemand","minOccurs":"0","maxOccurs":"1","type":"SummaryMeasurement"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"The current ratchet demand value for the ratchet demand period"}]}]}]},{"type":"element","name":"xs:element","attributes":{"name":"ratchetDemandPeriod","minOccurs":"0","maxOccurs":"1","type":"DateTimeInterval"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"The period over which the ratchet demand applies"}]}]}]},{"type":"element","name":"xs:element","attributes":{"name":"statusTimeStamp","minOccurs":"1","maxOccurs":"1","type":"TimeType"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"Date/Time status of this UsageSummary"}]}]}]}]}]}]}]},{"type":"element","name":"xs:simpleType","attributes":{"name":"HexBinary128"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"A 128-bit field encoded as a hex string (32 characters / 16 octets)"}]}]},{"type":"element","name":"xs:restriction","attributes":{"base":"xs:hexBinary"},"elements":[{"type":"element","name":"xs:maxLength","attributes":{"value":"16"},"elements":[]}]}]},{"type":"element","name":"xs:simpleType","attributes":{"name":"HexBinary16"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"A 16-bit field encoded as a hex string (4 characters / 2 octets)"}]}]},{"type":"element","name":"xs:restriction","attributes":{"base":"xs:hexBinary"},"elements":[{"type":"element","name":"xs:maxLength","attributes":{"value":"2"},"elements":[]}]}]},{"type":"element","name":"xs:simpleType","attributes":{"name":"String256"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"Character string of max length 256"}]}]},{"type":"element","name":"xs:restriction","attributes":{"base":"xs:string"},"elements":[{"type":"element","name":"xs:maxLength","attributes":{"value":"256"},"elements":[]}]}]},{"type":"element","name":"xs:simpleType","attributes":{"name":"String32"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"Character string of max length 32"}]}]},{"type":"element","name":"xs:restriction","attributes":{"base":"xs:string"},"elements":[{"type":"element","name":"xs:maxLength","attributes":{"value":"32"},"elements":[]}]}]},{"type":"element","name":"xs:simpleType","attributes":{"name":"String64"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"Character string of max length 64"}]}]},{"type":"element","name":"xs:restriction","attributes":{"base":"xs:string"},"elements":[{"type":"element","name":"xs:maxLength","attributes":{"value":"64"},"elements":[]}]}]},{"type":"element","name":"xs:simpleType","attributes":{"name":"UInt16"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"Unsigned integer, max inclusive 65535 (2^16-1), same as xs:unsignedShort"}]}]},{"type":"element","name":"xs:restriction","attributes":{"base":"xs:unsignedShort"},"elements":[]}]},{"type":"element","name":"xs:simpleType","attributes":{"name":"UInt32"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"Unsigned integer, max inclusive 4294967295 (2^32-1), same as xs:unsignedInt"}]}]},{"type":"element","name":"xs:restriction","attributes":{"base":"xs:unsignedInt"},"elements":[]}]},{"type":"element","name":"xs:simpleType","attributes":{"name":"UInt48"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"Unsigned integer, max inclusive 281474976710655 (2^48-1), restriction of xs:unsignedLong"}]}]},{"type":"element","name":"xs:restriction","attributes":{"base":"xs:unsignedLong"},"elements":[{"type":"element","name":"xs:maxInclusive","attributes":{"value":"281474976710655"},"elements":[]}]}]},{"type":"element","name":"xs:simpleType","attributes":{"name":"UInt8"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"Unsigned integer, max inclusive 255 (2^8-1), same as xs:unsignedByte"}]}]},{"type":"element","name":"xs:restriction","attributes":{"base":"xs:unsignedByte"},"elements":[]}]},{"type":"element","name":"xs:simpleType","attributes":{"name":"Int48"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"Signed integer, max inclusive 281474976710655 (2^48-1), restriction of xs:long"}]}]},{"type":"element","name":"xs:restriction","attributes":{"base":"xs:long"},"elements":[{"type":"element","name":"xs:maxInclusive","attributes":{"value":"281474976710655"},"elements":[]}]}]},{"type":"element","name":"xs:complexType","attributes":{"name":"AccumulationBehaviourType"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"Valid values include:\r\n\r\n0 = Not Applicable\r\n1 = BulkQuantity\r\n3 = Cumulative\r\n4 = DeltaData\r\n6 = Indicating\r\n9 = Summation\r\n12 = Instantaneous"}]}]},{"type":"element","name":"xs:simpleContent","elements":[{"type":"element","name":"xs:extension","attributes":{"base":"UInt8"},"elements":[]}]}]},{"type":"element","name":"xs:complexType","attributes":{"name":"CommodityType"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"Valid values include:\r\n\r\n0 = Not Applicable\r\n1 = Electricity metered value \r\n4 = Air\r\n7 = NaturalGas\r\n8 = Propane\r\n9 = PotableWater\r\n10 = Steam\r\n11 = WasteWater\r\n12 = HeatingFluid\r\n13 = CoolingFluid"}]}]},{"type":"element","name":"xs:simpleContent","elements":[{"type":"element","name":"xs:extension","attributes":{"base":"UInt8"},"elements":[]}]}]},{"type":"element","name":"xs:complexType","attributes":{"name":"ConsumptionTierType"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"Valid values include:\r\n\r\n0 = Not Applicable\r\n1 = Block Tier 1\r\n2 = Block Tier 2\r\n3 = Block Tier 3\r\n4 = Block Tier 4\r\n5 = Block Tier 5\r\n6 = Block Tier 6\r\n7 = Block Tier 7\r\n8 = Block Tier 8\r\n9 = Block Tier 9\r\n10 = Block Tier 10\r\n11 = Block Tier 11\r\n12 = Block Tier 12\r\n13 = Block Tier 13\r\n14 = Block Tier 14\r\n15 = Block Tier 15\r\n16 = Block Tier 16"}]}]},{"type":"element","name":"xs:simpleContent","elements":[{"type":"element","name":"xs:extension","attributes":{"base":"UInt8"},"elements":[]}]}]},{"type":"element","name":"xs:complexType","attributes":{"name":"CurrencyCode"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"Follows codes defined in ISO 4217. Full list at tiny.cc/4217.\r\n\r\n0 - Not Applicable\r\n36 - Australian Dollar\r\n124 - Canadian Dollar\r\n840 - US Dollar\r\n978 - Euro"}]}]},{"type":"element","name":"xs:simpleContent","elements":[{"type":"element","name":"xs:extension","attributes":{"base":"UInt8"},"elements":[]}]}]},{"type":"element","name":"xs:complexType","attributes":{"name":"DataQualifierType"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"Valid values include:\r\n\r\n0 = Not Applicable\r\n2 = Average\r\n8 = Maximum\r\n9 = Minimum\r\n12 = Normal"}]}]},{"type":"element","name":"xs:simpleContent","elements":[{"type":"element","name":"xs:extension","attributes":{"base":"UInt8"},"elements":[]}]}]},{"type":"element","name":"xs:complexType","attributes":{"name":"DateTimeInterval"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"Interval of date and time. End is not included because it can be derived from the start and the duration."}]}]},{"type":"element","name":"xs:complexContent","elements":[{"type":"element","name":"xs:extension","attributes":{"base":"Object"},"elements":[{"type":"element","name":"xs:sequence","elements":[{"type":"element","name":"xs:element","attributes":{"name":"duration","minOccurs":"1","maxOccurs":"1","type":"UInt32"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"Duration of the interval, in seconds."}]}]}]},{"type":"element","name":"xs:element","attributes":{"name":"start","minOccurs":"1","maxOccurs":"1","type":"TimeType"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"Date and time that this interval started."}]}]}]}]}]}]}]},{"type":"element","name":"xs:complexType","attributes":{"name":"FlowDirectionType"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"Valid values include:\r\n\r\n0 = Not Applicable\r\n1 = Forward\r\n19 = Reverse"}]}]},{"type":"element","name":"xs:simpleContent","elements":[{"type":"element","name":"xs:extension","attributes":{"base":"UInt8"},"elements":[]}]}]},{"type":"element","name":"xs:complexType","attributes":{"name":"KindType"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"Valid values include:\r\n\r\n0 = Not Applicable\r\n3 = Currency\r\n4 = Current\r\n5 = CurrentAngle\r\n7 = Date\r\n8 = Demand\r\n12 = Energy\r\n15 = Frequency\r\n37 = Power\r\n38 = PowerFactor\r\n40 = QuantityPower\r\n54 = Voltage\r\n55 = VoltageAngle\r\n64 = DistortionPowerFactor\r\n155 = VolumetricFlow"}]}]},{"type":"element","name":"xs:simpleContent","elements":[{"type":"element","name":"xs:extension","attributes":{"base":"UInt8"},"elements":[]}]}]},{"type":"element","name":"xs:complexType","attributes":{"name":"PhaseCode"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"Valid values include:\r\n\r\n0 = Not Applicable\r\n129 = Phase AN\r\n128 = Phase A\r\n132 = Phase AB\r\n64 = Phase BN\r\n64 = Phase B\r\n32 = Phase CN\r\n32 = Phase C\r\n224 = Phase ABC\r\n66 = Phase BC\r\n40 = Phase CA\r\n512 = Phase S1\r\n256 = Phase S2\r\n768 = Phase S1S2\r\n513 = Phase S1N\r\n257 = Phase S2N\r\n769 = Phase S1S2N"}]}]},{"type":"element","name":"xs:simpleContent","elements":[{"type":"element","name":"xs:extension","attributes":{"base":"UInt16"},"elements":[]}]}]},{"type":"element","name":"xs:simpleType","attributes":{"name":"PowerOfTenMultiplierType"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"Valid values include:\r\n\r\n0 = None\r\n1 = deca=x10\r\n2 = hecto=x100\r\n-3 = mili=x10-3\r\n3 = kilo=x1000\r\n6 = Mega=x106\r\n-6 = micro=x10-3\r\n9 = Giga=x109"}]}]},{"type":"element","name":"xs:restriction","attributes":{"base":"xs:byte"},"elements":[]}]},{"type":"element","name":"xs:complexType","attributes":{"name":"QualityOfReading"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"List of codes indicating the quality of the reading, using specification:\r\n\r\n0 - valid: data that has gone through all required validation checks and either passed them all or has been verified \r\n7 - manually edited: Replaced or approved by a human\r\n8 - estimated using reference day: data value was replaced by a machine computed value based on analysis of historical data using the same type of measurement.\r\n9 - estimated using linear interpolation: data value was computed using linear interpolation based on the readings before and after it\r\n10 - questionable: data that has failed one or more checks\r\n11 - derived: data that has been calculated (using logic or mathematical operations), not necessarily measured directly \r\n12 - projected (forecast): data that has been calculated as a projection or forecast of future readings\r\n13 - mixed: indicates that the quality of this reading has mixed characteristics\r\n14 - raw: data that has not gone through the validation, editing and estimation process\r\n15 - normalized for weather: the values have been adjusted to account for weather, in order to compare usage in different climates\r\n16 - other: specifies that a characteristic applies other than those defined\r\n17 - validated: data that has been validated and possibly edited and/or estimated in accordance with approved procedures\r\n18 - verified: data that failed at least one of the required validation checks but was determined to represent actual usage"}]}]},{"type":"element","name":"xs:simpleContent","elements":[{"type":"element","name":"xs:extension","attributes":{"base":"UInt8"},"elements":[]}]}]},{"type":"element","name":"xs:complexType","attributes":{"name":"ServiceKind"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"Valid values include:\r\n\r\n0 - electricity\r\n1 - gas\r\n2 - water\r\n4 - pressure\r\n5 - heat\r\n6 - cold\r\n7 - communication\r\n8 - time"}]}]},{"type":"element","name":"xs:simpleContent","elements":[{"type":"element","name":"xs:extension","attributes":{"base":"UInt8"},"elements":[]}]}]},{"type":"element","name":"xs:complexType","attributes":{"name":"TimeAttributeType"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"Valid values include:\r\n\r\n0 = Not Applicable\r\n1 = 10-minute\r\n2 = 15-minute\r\n4 = 24-hour\r\n5 = 30-minute\r\n7 = 60-minute\r\n11 = Daily\r\n13 = Monthly\r\n15 = Present\r\n16 = Previous\r\n24 = Weekly\r\n32 = ForTheSpecifiedPeriod\r\n79 = Daily30minuteFixedBlock"}]}]},{"type":"element","name":"xs:simpleContent","elements":[{"type":"element","name":"xs:extension","attributes":{"base":"UInt8"},"elements":[]}]}]},{"type":"element","name":"xs:simpleType","attributes":{"name":"TimeType"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"Time is a signed 64-bit value representing the number of seconds since 0 hours, 0 minutes, 0 seconds, on the 1st of January, 1970."}]}]},{"type":"element","name":"xs:restriction","attributes":{"base":"xs:long"},"elements":[]}]},{"type":"element","name":"xs:complexType","attributes":{"name":"TOUType"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"Valid values include:\r\n\r\n0 = NotApplicable\r\n1 = TOU A\r\n2 = TOU B\r\n3 = TOU C\r\n4 = TOU D\r\n5 = TOU E\r\n6 = TOU F\r\n7 = TOU G\r\n8 = TOU H\r\n9 = TOU I\r\n10 = TOU J\r\n11 = TOU K\r\n12 = TOU L\r\n13 = TOU M\r\n14 = TOU N\r\n15 = TOU O"}]}]},{"type":"element","name":"xs:simpleContent","elements":[{"type":"element","name":"xs:extension","attributes":{"base":"UInt8"},"elements":[]}]}]},{"type":"element","name":"xs:complexType","attributes":{"name":"UomType"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"Valid values include:\r\n\r\n0 = Not Applicable\r\n5 = A (Current)\r\n29 = Voltage\r\n31 = J (Energy joule)\r\n33 = Hz (Frequency)\r\n38 = Real power (Watts)\r\n42 = m3 (Cubic Meter)\r\n61 = VA (Apparent power)\r\n63 = VAr (Reactive power)\r\n65 = Cos? (Power factor)\r\n67 = V� (Volts squared)\r\n69 = A� (Amp squared)\r\n71 = VAh (Apparent energy)\r\n72 = Real energy (Watt-hours)\r\n73 = VArh (Reactive energy)\r\n106 = Ah (Ampere-hours / Available Charge)\r\n119 = ft3 (Cubic Feet)\r\n122 = ft3/h (Cubic Feet per Hour)\r\n125 = m3/h (Cubic Meter per Hour)\r\n128 = US gl (US Gallons)\r\n129 = US gl/h (US Gallons per Hour)\r\n130 = IMP gl (Imperial Gallons)\r\n131 = IMP gl/h (Imperial Gallons per Hour)\r\n132 = BTU\r\n133 = BTU/h\r\n134 = Liter\r\n137 = L/h (Liters per Hour)\r\n140 = PA(gauge)\r\n155 = PA(absolute)\r\n169 = Therm"}]}]},{"type":"element","name":"xs:simpleContent","elements":[{"type":"element","name":"xs:extension","attributes":{"base":"UInt8"},"elements":[]}]}]},{"type":"element","name":"xs:complexType","attributes":{"name":"SummaryMeasurement"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"An aggregated summary measurement reading."}]}]},{"type":"element","name":"xs:complexContent","elements":[{"type":"element","name":"xs:extension","attributes":{"base":"Object"},"elements":[{"type":"element","name":"xs:sequence","elements":[{"type":"element","name":"xs:element","attributes":{"name":"powerOfTenMultiplier","minOccurs":"0","maxOccurs":"1","type":"PowerOfTenMultiplierType"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"The multiplier part of the unit of measure, e.g. \"kilo\" (k)"}]}]}]},{"type":"element","name":"xs:element","attributes":{"name":"timeStamp","minOccurs":"0","maxOccurs":"1","type":"TimeType"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"The date and time (if needed) of the summary measurement."}]}]}]},{"type":"element","name":"xs:element","attributes":{"name":"uom","minOccurs":"0","maxOccurs":"1","type":"UomType"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"The units of the reading, e.g. \"Wh\""}]}]}]},{"type":"element","name":"xs:element","attributes":{"name":"value","minOccurs":"0","maxOccurs":"1","type":"UInt48"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"The value of the summary measurement."}]}]}]}]}]}]}]},{"type":"element","name":"xs:complexType","attributes":{"name":"BatchItemInfo"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"Includes elements that make it possible to include multiple transactions in a single (batch) request."}]}]},{"type":"element","name":"xs:complexContent","elements":[{"type":"element","name":"xs:extension","attributes":{"base":"Object"},"elements":[{"type":"element","name":"xs:sequence","elements":[{"type":"element","name":"xs:element","attributes":{"name":"name","minOccurs":"0","maxOccurs":"1","type":"HexBinary16"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"An identifier for this object that is only unique within the containing collection."}]}]}]},{"type":"element","name":"xs:element","attributes":{"name":"operation","minOccurs":"0","maxOccurs":"1","type":"UInt8"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"Specifies the operation requested of this item. \r\n\r\n0=Create\r\n1=Read\r\n2=Update\r\n3=Delete"}]}]}]},{"type":"element","name":"xs:element","attributes":{"name":"statusCode","minOccurs":"0","maxOccurs":"1","type":"UInt16"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"Indicates the status code of the associated transaction. \r\n\r\n200 - Ok\r\n201 - Created\r\n204 - No Content\r\n301 - Moved Permanently\r\n302 - Redirect\r\n304 - Not Modified\r\n400 - Bad Request\r\n401 - Unauthorized\r\n403 - Forbidden\r\n404 - Not Found\r\n405 - Method Not Allowed\r\n410 - Gone\r\n500 - Internal Server Error"}]}]}]},{"type":"element","name":"xs:element","attributes":{"name":"statusReason","minOccurs":"0","maxOccurs":"1","type":"String256"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"Indicates the reason for the indicated status code."}]}]}]}]}]}]}]},{"type":"element","name":"xs:complexType","attributes":{"name":"Object"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"Superclass of all object classes to allow extensions."}]}]},{"type":"element","name":"xs:sequence","elements":[{"type":"element","name":"xs:element","attributes":{"name":"extension","minOccurs":"0","maxOccurs":"unbounded","type":"xs:anyType"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"Contains an extension."}]}]}]}]}]},{"type":"element","name":"xs:complexType","attributes":{"name":"ServiceStatus"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"Contains the current status of the service."}]}]},{"type":"element","name":"xs:complexContent","elements":[{"type":"element","name":"xs:extension","attributes":{"base":"Object"},"elements":[{"type":"element","name":"xs:sequence","elements":[{"type":"element","name":"xs:element","attributes":{"name":"currentStatus","minOccurs":"1","maxOccurs":"1","type":"UInt8"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"The current status of the service. \r\n\r\n0 = Unavailable\r\n1 = Normal, operational"}]}]}]}]}]}]}]},{"type":"element","name":"xs:complexType","attributes":{"name":"Subscription"},"elements":[{"type":"element","name":"xs:annotation","elements":[{"type":"element","name":"xs:documentation","elements":[{"type":"text","text":"Defines the parameters of a subscription between Third Party and Data Custodian."}]}]},{"type":"element","name":"xs:complexContent","elements":[{"type":"element","name":"xs:extension","attributes":{"base":"IdentifiedObject"},"elements":[]}]}]},{"type":"element","name":"xs:element","attributes":{"name":"ApplicationInformation","type":"ApplicationInformation"},"elements":[]},{"type":"element","name":"xs:element","attributes":{"name":"Authorization","type":"Authorization"},"elements":[]},{"type":"element","name":"xs:element","attributes":{"name":"IntervalBlock","type":"IntervalBlock"},"elements":[]},{"type":"element","name":"xs:element","attributes":{"name":"IntervalReading","type":"IntervalReading"},"elements":[]},{"type":"element","name":"xs:element","attributes":{"name":"MeterReading","type":"MeterReading"},"elements":[]},{"type":"element","name":"xs:element","attributes":{"name":"ReadingQuality","type":"ReadingQuality"},"elements":[]},{"type":"element","name":"xs:element","attributes":{"name":"ReadingType","type":"ReadingType"},"elements":[]},{"type":"element","name":"xs:element","attributes":{"name":"IdentifiedObject","type":"IdentifiedObject"},"elements":[]},{"type":"element","name":"xs:element","attributes":{"name":"ServiceCategory","type":"ServiceCategory"},"elements":[]},{"type":"element","name":"xs:element","attributes":{"name":"UsagePoint","type":"UsagePoint"},"elements":[]},{"type":"element","name":"xs:element","attributes":{"name":"ElectricPowerQualitySummary","type":"ElectricPowerQualitySummary"},"elements":[]},{"type":"element","name":"xs:element","attributes":{"name":"ElectricPowerUsageSummary","type":"ElectricPowerUsageSummary"},"elements":[]},{"type":"element","name":"xs:element","attributes":{"name":"AccumulationBehaviourType","type":"AccumulationBehaviourType"},"elements":[]},{"type":"element","name":"xs:element","attributes":{"name":"CommodityType","type":"CommodityType"},"elements":[]},{"type":"element","name":"xs:element","attributes":{"name":"ConsumptionTierType","type":"ConsumptionTierType"},"elements":[]},{"type":"element","name":"xs:element","attributes":{"name":"CurrencyCode","type":"CurrencyCode"},"elements":[]},{"type":"element","name":"xs:element","attributes":{"name":"DataQualifierType","type":"DataQualifierType"},"elements":[]},{"type":"element","name":"xs:element","attributes":{"name":"DateTimeInterval","type":"DateTimeInterval"},"elements":[]},{"type":"element","name":"xs:element","attributes":{"name":"FlowDirectionType","type":"FlowDirectionType"},"elements":[]},{"type":"element","name":"xs:element","attributes":{"name":"KindType","type":"KindType"},"elements":[]},{"type":"element","name":"xs:element","attributes":{"name":"PhaseCode","type":"PhaseCode"},"elements":[]},{"type":"element","name":"xs:element","attributes":{"name":"QualityOfReading","type":"QualityOfReading"},"elements":[]},{"type":"element","name":"xs:element","attributes":{"name":"ServiceKind","type":"ServiceKind"},"elements":[]},{"type":"element","name":"xs:element","attributes":{"name":"TimeAttributeType","type":"TimeAttributeType"},"elements":[]},{"type":"element","name":"xs:element","attributes":{"name":"TOUType","type":"TOUType"},"elements":[]},{"type":"element","name":"xs:element","attributes":{"name":"UomType","type":"UomType"},"elements":[]},{"type":"element","name":"xs:element","attributes":{"name":"SummaryMeasurement","type":"SummaryMeasurement"},"elements":[]},{"type":"element","name":"xs:element","attributes":{"name":"BatchItemInfo","type":"BatchItemInfo"},"elements":[]},{"type":"element","name":"xs:element","attributes":{"name":"Object","type":"Object"},"elements":[]},{"type":"element","name":"xs:element","attributes":{"name":"ServiceStatus","type":"ServiceStatus"},"elements":[]},{"type":"element","name":"xs:element","attributes":{"name":"Subscription","type":"Subscription"},"elements":[]}]}]}
+{
+  "_declaration": {
+    "_attributes": {
+      "version": "1.0",
+      "encoding": "utf-8"
+    }
+  },
+  "xs:schema": {
+    "_attributes": {
+      "xmlns:xs": "http://www.w3.org/2001/XMLSchema",
+      "xmlns": "http://naesb.org/espi",
+      "targetNamespace": "http://naesb.org/espi",
+      "elementFormDefault": "qualified",
+      "attributeFormDefault": "unqualified",
+      "version": "0.7"
+    },
+    "xs:import": {
+      "_attributes": {
+        "namespace": "http://www.w3.org/2005/Atom",
+        "schemaLocation": "atom.xsd"
+      }
+    },
+    "xs:complexType": [
+      {
+        "_attributes": {
+          "name": "ApplicationInformation"
+        },
+        "xs:annotation": {
+          "xs:documentation": {
+            "_text": "Contains information about a Third Party Application requesting access to the DataCustodian services. Information requested may include items such as Organization Name, Website, Contact Info, Application Name, Description, Icon, Type, default Notification and Callback endpoints, and may also include agreement with terms of service."
+          }
+        },
+        "xs:complexContent": {
+          "xs:extension": {
+            "_attributes": {
+              "base": "IdentifiedObject"
+            },
+            "xs:sequence": {
+              "xs:element": [
+                {
+                  "_attributes": {
+                    "name": "dataCustodianApplicationStatus",
+                    "type": "UInt8",
+                    "minOccurs": "0",
+                    "maxOccurs": "1"
+                  },
+                  "xs:annotation": {
+                    "xs:documentation": {
+                      "_text": "A code indicating the current status of the application. This value is provided by Data Custodian, cannot be modified by Third Party.\r\nDefined statuses are:\r\n1 - Review\r\n2 - Production (Live)\r\n3 - On hold \r\n4 - Revoked"
+                    }
+                  }
+                },
+                {
+                  "_attributes": {
+                    "name": "dataCustodianDefaultBatchResource",
+                    "type": "xs:anyURI",
+                    "minOccurs": "0",
+                    "maxOccurs": "1"
+                  },
+                  "xs:annotation": {
+                    "xs:documentation": {
+                      "_text": "The default endpoint for Batch requests. This value is provided by Data Custodian, updated in approved applications objects, and cannot be modified by Third Party."
+                    }
+                  }
+                },
+                {
+                  "_attributes": {
+                    "name": "dataCustodianDefaultSubscriptionResource",
+                    "type": "xs:anyURI",
+                    "minOccurs": "0",
+                    "maxOccurs": "1"
+                  },
+                  "xs:annotation": {
+                    "xs:documentation": {
+                      "_text": "The default endpoint for Subscription requests. This value is provided by Data Custodian, updated in approved applications objects, cannot be modified by Third Party."
+                    }
+                  }
+                },
+                {
+                  "_attributes": {
+                    "name": "dataCustodianThirdPartyId",
+                    "type": "String32",
+                    "minOccurs": "0",
+                    "maxOccurs": "1"
+                  },
+                  "xs:annotation": {
+                    "xs:documentation": {
+                      "_text": "A key to be associated with this application, to be provided in OAuth requests. This value is provided by Data Custodian."
+                    }
+                  }
+                },
+                {
+                  "_attributes": {
+                    "name": "dataCustodianThirdPartySecret",
+                    "type": "String32",
+                    "minOccurs": "0",
+                    "maxOccurs": "1"
+                  },
+                  "xs:annotation": {
+                    "xs:documentation": {
+                      "_text": "A secret to be associated with this application, used to sign OAuth requests. This value is provided by Data Custodian."
+                    }
+                  }
+                },
+                {
+                  "_attributes": {
+                    "name": "thirdPartyApplicationDescription",
+                    "type": "String256",
+                    "minOccurs": "0",
+                    "maxOccurs": "1"
+                  },
+                  "xs:annotation": {
+                    "xs:documentation": {
+                      "_text": "A description of the application."
+                    }
+                  }
+                },
+                {
+                  "_attributes": {
+                    "name": "thirdPartyApplicationLogo",
+                    "type": "xs:anyURI",
+                    "minOccurs": "0",
+                    "maxOccurs": "1"
+                  },
+                  "xs:annotation": {
+                    "xs:documentation": {
+                      "_text": "The link to the logo image for the application. Size greater than 180 x 150 may be cropped or reduced."
+                    }
+                  }
+                },
+                {
+                  "_attributes": {
+                    "name": "thirdPartyApplicationName",
+                    "type": "String32",
+                    "minOccurs": "0",
+                    "maxOccurs": "1"
+                  },
+                  "xs:annotation": {
+                    "xs:documentation": {
+                      "_text": "The name of the application to which access will be granted."
+                    }
+                  }
+                },
+                {
+                  "_attributes": {
+                    "name": "thirdPartyApplicationStatus",
+                    "type": "UInt8",
+                    "minOccurs": "0",
+                    "maxOccurs": "1"
+                  },
+                  "xs:annotation": {
+                    "xs:documentation": {
+                      "_text": "A code indicating the current status of the application. \r\nDefined statuses are:\r\n1 - Development\r\n2 - Review / Test\r\n3 - Production (Live)\r\n4 - Retired (Remove)"
+                    }
+                  }
+                },
+                {
+                  "_attributes": {
+                    "name": "thirdPartyApplicationType",
+                    "type": "UInt8",
+                    "minOccurs": "0",
+                    "maxOccurs": "1"
+                  },
+                  "xs:annotation": {
+                    "xs:documentation": {
+                      "_text": "A code indicating the type of the application. \r\nDefined types are:\r\n1 - Web Application\r\n2 - Desktop Application\r\n3 - Mobile Application"
+                    }
+                  }
+                },
+                {
+                  "_attributes": {
+                    "name": "thirdPartyApplicationUse",
+                    "type": "UInt8",
+                    "minOccurs": "0",
+                    "maxOccurs": "1"
+                  },
+                  "xs:annotation": {
+                    "xs:documentation": {
+                      "_text": "A code indicating the expected use of the application. \r\nDefined uses are:\r\n1 - Energy management\r\n2 - Comparisons\r\n3 - Government\r\n4 - Academic\r\n5 - Law enforcement"
+                    }
+                  }
+                },
+                {
+                  "_attributes": {
+                    "name": "thirdPartyApplicationWebsite",
+                    "type": "xs:anyURI",
+                    "minOccurs": "0",
+                    "maxOccurs": "1"
+                  },
+                  "xs:annotation": {
+                    "xs:documentation": {
+                      "_text": "The link to the main page of the application."
+                    }
+                  }
+                },
+                {
+                  "_attributes": {
+                    "name": "thirdPartyDefaultBatchResource",
+                    "type": "xs:anyURI",
+                    "minOccurs": "0",
+                    "maxOccurs": "1"
+                  },
+                  "xs:annotation": {
+                    "xs:documentation": {
+                      "_text": "The default endpoint for asynchronous delivery of Batch data using push."
+                    }
+                  }
+                },
+                {
+                  "_attributes": {
+                    "name": "thirdPartyDefaultNotifyResource",
+                    "type": "xs:anyURI",
+                    "minOccurs": "0",
+                    "maxOccurs": "1"
+                  },
+                  "xs:annotation": {
+                    "xs:documentation": {
+                      "_text": "The default endpoint for Third Party notification of Batch data availability  that is then requested from the Data Custodian via the Batch resource."
+                    }
+                  }
+                },
+                {
+                  "_attributes": {
+                    "name": "thirdPartyDefaultOAuthCallback",
+                    "type": "xs:anyURI",
+                    "minOccurs": "0",
+                    "maxOccurs": "1"
+                  },
+                  "xs:annotation": {
+                    "xs:documentation": {
+                      "_text": "The default redirect back to the application after authorization grant."
+                    }
+                  }
+                },
+                {
+                  "_attributes": {
+                    "name": "thirdPartyEmail",
+                    "type": "String64",
+                    "minOccurs": "0",
+                    "maxOccurs": "1"
+                  },
+                  "xs:annotation": {
+                    "xs:documentation": {
+                      "_text": "The e-mail address of the organization to which access will be granted. (For debugging - not to be shared with customers)"
+                    }
+                  }
+                },
+                {
+                  "_attributes": {
+                    "name": "thirdPartyName",
+                    "type": "String64",
+                    "minOccurs": "0",
+                    "maxOccurs": "1"
+                  },
+                  "xs:annotation": {
+                    "xs:documentation": {
+                      "_text": "The name of the organization to which access will be granted."
+                    }
+                  }
+                },
+                {
+                  "_attributes": {
+                    "name": "thirdPartyPhone",
+                    "type": "String32",
+                    "minOccurs": "0",
+                    "maxOccurs": "1"
+                  },
+                  "xs:annotation": {
+                    "xs:documentation": {
+                      "_text": "The phone number of the organization to which access will be granted. (For debugging - not to be shared with customers)"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "_attributes": {
+          "name": "Authorization"
+        },
+        "xs:annotation": {
+          "xs:documentation": {
+            "_text": "Represents a permission granted by an owner for access to a resource."
+          }
+        },
+        "xs:complexContent": {
+          "xs:extension": {
+            "_attributes": {
+              "base": "IdentifiedObject"
+            },
+            "xs:sequence": {
+              "xs:element": [
+                {
+                  "_attributes": {
+                    "name": "accessToken",
+                    "minOccurs": "0",
+                    "maxOccurs": "1",
+                    "type": "String32"
+                  },
+                  "xs:annotation": {
+                    "xs:documentation": {
+                      "_text": "Contains the access token associated with this authorization."
+                    }
+                  }
+                },
+                {
+                  "_attributes": {
+                    "name": "authorizationServer",
+                    "minOccurs": "0",
+                    "maxOccurs": "1",
+                    "type": "xs:anyURI"
+                  },
+                  "xs:annotation": {
+                    "xs:documentation": {
+                      "_text": "Contains the URI link to the authorization endpoint associated with this authorization."
+                    }
+                  }
+                },
+                {
+                  "_attributes": {
+                    "name": "authorizedPeriod",
+                    "minOccurs": "0",
+                    "maxOccurs": "1",
+                    "type": "DateTimeInterval"
+                  },
+                  "xs:annotation": {
+                    "xs:documentation": {
+                      "_text": "Restricts access to requests or subscriptions within this date time interval."
+                    }
+                  }
+                },
+                {
+                  "_attributes": {
+                    "name": "publishedPeriod",
+                    "minOccurs": "0",
+                    "maxOccurs": "1",
+                    "type": "DateTimeInterval"
+                  },
+                  "xs:annotation": {
+                    "xs:documentation": {
+                      "_text": "Restricts access to the objects within the associated resource that were published within this date time interval."
+                    }
+                  }
+                },
+                {
+                  "_attributes": {
+                    "name": "resource",
+                    "minOccurs": "0",
+                    "maxOccurs": "1",
+                    "type": "xs:anyURI"
+                  },
+                  "xs:annotation": {
+                    "xs:documentation": {
+                      "_text": "Contains the identifier of the resource, same as was specified in OAuth \"scope\"."
+                    }
+                  }
+                },
+                {
+                  "_attributes": {
+                    "name": "status",
+                    "minOccurs": "0",
+                    "maxOccurs": "1",
+                    "type": "UInt8"
+                  },
+                  "xs:annotation": {
+                    "xs:documentation": {
+                      "_text": "The status of this authorization. \r\n0 - Revoked\r\n1 - Active"
+                    }
+                  }
+                },
+                {
+                  "_attributes": {
+                    "name": "thirdParty",
+                    "minOccurs": "0",
+                    "maxOccurs": "1",
+                    "type": "String32"
+                  },
+                  "xs:annotation": {
+                    "xs:documentation": {
+                      "_text": "Contains the identifier for the Third Party."
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "_attributes": {
+          "name": "IntervalBlock"
+        },
+        "xs:annotation": {
+          "xs:documentation": {
+            "_text": "Time sequence of Readings of the same ReadingType."
+          }
+        },
+        "xs:complexContent": {
+          "xs:extension": {
+            "_attributes": {
+              "base": "IdentifiedObject"
+            },
+            "xs:sequence": {
+              "xs:element": [
+                {
+                  "_attributes": {
+                    "name": "interval",
+                    "minOccurs": "0",
+                    "maxOccurs": "1",
+                    "type": "DateTimeInterval"
+                  },
+                  "xs:annotation": {
+                    "xs:documentation": {
+                      "_text": "Specifies the time period during which the contained readings were taken."
+                    }
+                  }
+                },
+                {
+                  "_attributes": {
+                    "name": "IntervalReading",
+                    "type": "IntervalReading",
+                    "minOccurs": "0",
+                    "maxOccurs": "unbounded"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "_attributes": {
+          "name": "IntervalReading"
+        },
+        "xs:annotation": {
+          "xs:documentation": {
+            "_text": "Specific value measured by a meter or other asset. Each Reading is associated with a specific ReadingType."
+          }
+        },
+        "xs:complexContent": {
+          "xs:extension": {
+            "_attributes": {
+              "base": "Object"
+            },
+            "xs:sequence": {
+              "xs:element": [
+                {
+                  "_attributes": {
+                    "name": "cost",
+                    "minOccurs": "0",
+                    "maxOccurs": "1",
+                    "type": "UInt48"
+                  },
+                  "xs:annotation": {
+                    "xs:documentation": {
+                      "_text": "Specifies a cost associated with this reading, in hundred-thousandths of the currency specified in the ReadingType for this reading.  (e.g., 840 = USD, US dollar)"
+                    }
+                  }
+                },
+                {
+                  "_attributes": {
+                    "name": "ReadingQuality",
+                    "type": "ReadingQuality",
+                    "minOccurs": "0",
+                    "maxOccurs": "unbounded"
+                  }
+                },
+                {
+                  "_attributes": {
+                    "name": "timePeriod",
+                    "minOccurs": "0",
+                    "maxOccurs": "1",
+                    "type": "DateTimeInterval"
+                  },
+                  "xs:annotation": {
+                    "xs:documentation": {
+                      "_text": "The date time and duration of a reading. If not specified, readings for each \"intervalLength\" in ReadingType are present."
+                    }
+                  }
+                },
+                {
+                  "_attributes": {
+                    "name": "value",
+                    "minOccurs": "0",
+                    "maxOccurs": "1",
+                    "type": "UInt48"
+                  },
+                  "xs:annotation": {
+                    "xs:documentation": {
+                      "_text": "Value in units specified by ReadingType"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "_attributes": {
+          "name": "MeterReading"
+        },
+        "xs:annotation": {
+          "xs:documentation": {
+            "_text": "Set of values obtained from the meter."
+          }
+        },
+        "xs:complexContent": {
+          "xs:extension": {
+            "_attributes": {
+              "base": "IdentifiedObject"
+            }
+          }
+        }
+      },
+      {
+        "_attributes": {
+          "name": "ReadingQuality"
+        },
+        "xs:annotation": {
+          "xs:documentation": {
+            "_text": "Quality of a specific reading value or interval reading value. Note that more than one Quality may be applicable to a given Reading. Typically not used unless problems or unusual conditions occur (i.e., quality for each Reading is assumed to be 'Good' (valid) unless stated otherwise in associated ReadingQuality)."
+          }
+        },
+        "xs:complexContent": {
+          "xs:extension": {
+            "_attributes": {
+              "base": "Object"
+            },
+            "xs:sequence": {
+              "xs:element": {
+                "_attributes": {
+                  "name": "quality",
+                  "minOccurs": "1",
+                  "maxOccurs": "1",
+                  "type": "QualityOfReading"
+                },
+                "xs:annotation": {
+                  "xs:documentation": {
+                    "_text": "Quality, to be specified if different than ReadingType.defaultQuality.\r\n\r\nThe specific format  is specified per the standard is defined in QualityOfReading."
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "_attributes": {
+          "name": "ReadingType"
+        },
+        "xs:annotation": {
+          "xs:documentation": {
+            "_text": "Characteristics associated with all Readings included in a MeterReading."
+          }
+        },
+        "xs:complexContent": {
+          "xs:extension": {
+            "_attributes": {
+              "base": "IdentifiedObject"
+            },
+            "xs:sequence": {
+              "xs:element": [
+                {
+                  "_attributes": {
+                    "name": "accumulationBehaviour",
+                    "minOccurs": "0",
+                    "maxOccurs": "1",
+                    "type": "AccumulationBehaviourType"
+                  },
+                  "xs:annotation": {
+                    "xs:documentation": {
+                      "_text": "Code indicating how value is accumulated over time for Readings of ReadingType. The list of valid values per the standard are defined in AccumulationBehaviorType.\r\n\r\nExamples are:\r\n0 = Not Applicable\r\n1 = BulkQuantity\r\n3 = Cumulative"
+                    }
+                  }
+                },
+                {
+                  "_attributes": {
+                    "name": "commodity",
+                    "minOccurs": "0",
+                    "maxOccurs": "1",
+                    "type": "CommodityType"
+                  },
+                  "xs:annotation": {
+                    "xs:documentation": {
+                      "_text": "Code for commodity classification of Readings of ReadingType. The valid values per the standard are defined in CommodityType.\r\n\r\nExamples are:\r\n0 = Not Applicable\r\n1 = Electricity secondary metered value (a premise meter is typically a secondary meter)\r\n2 = Electricity primary metered value\r\n4 = Air\r\n7 = NaturalGas"
+                    }
+                  }
+                },
+                {
+                  "_attributes": {
+                    "name": "consumptionTier",
+                    "minOccurs": "0",
+                    "maxOccurs": "1",
+                    "type": "ConsumptionTierType"
+                  },
+                  "xs:annotation": {
+                    "xs:documentation": {
+                      "_text": "Code for consumption tier associated with a Reading of ReadingType. The valid values are define in ConsumptionTierType.\r\n\r\nExamples are:\r\n0 = Not Applicable\r\n1 = Block Tier 1\r\n2 = Block Tier 2"
+                    }
+                  }
+                },
+                {
+                  "_attributes": {
+                    "name": "currency",
+                    "minOccurs": "0",
+                    "maxOccurs": "1",
+                    "type": "CurrencyCode"
+                  },
+                  "xs:annotation": {
+                    "xs:documentation": {
+                      "_text": "Code for the currency for costs associated with this ReadingType.  The valid values per the standard are defined in CurrencyCode.\r\n\r\nExamples are:\r\n0 - Not Applicable\r\n36 - Australian Dollar\r\n124 - Canadian Dollar\r\n840 - US Dollar\r\n978 - Euro"
+                    }
+                  }
+                },
+                {
+                  "_attributes": {
+                    "name": "dataQualifier",
+                    "minOccurs": "0",
+                    "maxOccurs": "1",
+                    "type": "DataQualifierType"
+                  },
+                  "xs:annotation": {
+                    "xs:documentation": {
+                      "_text": "Code describing a salient attribute of Readings of ReadingType. Valid values per the standard are defined in DataQualifierType.\r\n\r\nExamples are:\r\n0 = Not Applicable\r\n2 = Average"
+                    }
+                  }
+                },
+                {
+                  "_attributes": {
+                    "name": "defaultQuality",
+                    "minOccurs": "0",
+                    "maxOccurs": "1",
+                    "type": "QualityOfReading"
+                  },
+                  "xs:annotation": {
+                    "xs:documentation": {
+                      "_text": "Default value to be used if no value of ReadingQuality.quality is provided.  \r\n\r\nSpecific format and valid values per the standard are specified in QualityOfReading."
+                    }
+                  }
+                },
+                {
+                  "_attributes": {
+                    "name": "flowDirection",
+                    "minOccurs": "0",
+                    "maxOccurs": "1",
+                    "type": "FlowDirectionType"
+                  },
+                  "xs:annotation": {
+                    "xs:documentation": {
+                      "_text": "Direction associated with current related Readings. valid values per the standard are defined in FlowDirectionType.\r\n\r\nExamples are:\r\n0 = Not Applicable\r\n1 = Forward\r\n19 = Reverse"
+                    }
+                  }
+                },
+                {
+                  "_attributes": {
+                    "name": "intervalLength",
+                    "minOccurs": "0",
+                    "maxOccurs": "1",
+                    "type": "UInt32"
+                  },
+                  "xs:annotation": {
+                    "xs:documentation": {
+                      "_text": "Default interval length specified in seconds for Readings of ReadingType."
+                    }
+                  }
+                },
+                {
+                  "_attributes": {
+                    "name": "kind",
+                    "minOccurs": "0",
+                    "maxOccurs": "1",
+                    "type": "KindType"
+                  },
+                  "xs:annotation": {
+                    "xs:documentation": {
+                      "_text": "Code for general classification of a Reading of ReadingType. Valid values per the standard are defined in KindType.\r\n\r\nExamples are:\r\n\r\n0 = Not Applicable\r\n3 = Currency\r\n8 = Demand"
+                    }
+                  }
+                },
+                {
+                  "_attributes": {
+                    "name": "phase",
+                    "minOccurs": "0",
+                    "maxOccurs": "1",
+                    "type": "PhaseCode"
+                  },
+                  "xs:annotation": {
+                    "xs:documentation": {
+                      "_text": "Code for phase information associated with Readings of ReadingType. Valid values per the standard are defined in PhaseCode.\r\n\r\nExamples are:\r\n0 = Not Applicable\r\n129 = Phase AN\r\n128 = Phase A\r\n132 = Phase AB"
+                    }
+                  }
+                },
+                {
+                  "_attributes": {
+                    "name": "powerOfTenMultiplier",
+                    "minOccurs": "0",
+                    "maxOccurs": "1",
+                    "type": "PowerOfTenMultiplierType"
+                  },
+                  "xs:annotation": {
+                    "xs:documentation": {
+                      "_text": "Code for the power of ten multiplier which, when used in combination with the uom, specifies the actual unit of measure for Readings of ReadingType. Valid values per the standard are defined in PowerOfTenMultiplierType.\r\n\r\nExamples are:\r\n0 = None\r\n1 = deca=x10\r\n2 = hecto=x100\r\n-3 = mili=x10-3"
+                    }
+                  }
+                },
+                {
+                  "_attributes": {
+                    "name": "timeAttribute",
+                    "minOccurs": "0",
+                    "maxOccurs": "1",
+                    "type": "TimeAttributeType"
+                  },
+                  "xs:annotation": {
+                    "xs:documentation": {
+                      "_text": "Code used to specify a particular type of time interval method for Readings of ReadingType. Valid values per the standard are defined in TimeAttributeType.\r\n\r\nExamplesare:\r\n0 = Not Applicable\r\n1 = 10-minute\r\n2 = 15-minute"
+                    }
+                  }
+                },
+                {
+                  "_attributes": {
+                    "name": "tou",
+                    "minOccurs": "0",
+                    "maxOccurs": "1",
+                    "type": "TOUType"
+                  },
+                  "xs:annotation": {
+                    "xs:documentation": {
+                      "_text": "Code for the TOU type of Readings of ReadingType. valid values per the standard are defined in TOUType.\r\nExamples are:\r\n0 = NotApplicable\r\n1 = TOU A\r\n2 = TOU B"
+                    }
+                  }
+                },
+                {
+                  "_attributes": {
+                    "name": "uom",
+                    "minOccurs": "0",
+                    "maxOccurs": "1",
+                    "type": "UomType"
+                  },
+                  "xs:annotation": {
+                    "xs:documentation": {
+                      "_text": "Code for the base unit of measure for Readings of ReadingType.  Used in combination with the powerOfTenMultiplier to specify the actual unit of measure. Valid values per the standard are defined in UomType.\r\n\r\nExamples are:\r\n0 = Not Applicable\r\n5 = A (Current)\r\n29 = Voltage"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "_attributes": {
+          "name": "IdentifiedObject"
+        },
+        "xs:annotation": {
+          "xs:documentation": {
+            "_text": "This is a root class to provide common naming attributes for all classes needing naming attributes."
+          }
+        },
+        "xs:complexContent": {
+          "xs:extension": {
+            "_attributes": {
+              "base": "Object"
+            },
+            "xs:sequence": {
+              "xs:element": {
+                "_attributes": {
+                  "name": "BatchItemInfo",
+                  "type": "BatchItemInfo",
+                  "minOccurs": "0",
+                  "maxOccurs": "1"
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "_attributes": {
+          "name": "ServiceCategory"
+        },
+        "xs:annotation": {
+          "xs:documentation": {
+            "_text": "Category of service provided to the customer."
+          }
+        },
+        "xs:complexContent": {
+          "xs:extension": {
+            "_attributes": {
+              "base": "Object"
+            },
+            "xs:sequence": {
+              "xs:element": {
+                "_attributes": {
+                  "name": "kind",
+                  "minOccurs": "1",
+                  "maxOccurs": "1",
+                  "type": "ServiceKind"
+                },
+                "xs:annotation": {
+                  "xs:documentation": {
+                    "_text": "Service classification\r\nExamples are:\r\n0 - electricity\r\n1 - gas\r\n\r\nThe list of specific valid values per the standard are itemized in ServiceKind."
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "_attributes": {
+          "name": "UsagePoint"
+        },
+        "xs:annotation": {
+          "xs:documentation": {
+            "_text": "Logical point on a network at which consumption or production is either physically measured (e.g., metered) or estimated (e.g., unmetered street lights)."
+          }
+        },
+        "xs:complexContent": {
+          "xs:extension": {
+            "_attributes": {
+              "base": "IdentifiedObject"
+            },
+            "xs:sequence": {
+              "xs:element": [
+                {
+                  "_attributes": {
+                    "name": "roleFlags",
+                    "minOccurs": "0",
+                    "maxOccurs": "1",
+                    "type": "HexBinary16"
+                  },
+                  "xs:annotation": {
+                    "xs:documentation": {
+                      "_text": "Specifies the roles that this usage point has been assigned.\r\nBit 1 - isMirror\r\nBit 2 - isPremisesAggregationPoint\r\nBit 3 - isPEV\r\nBit 4 - isDER\r\nBit 5 - isRevenueQuality\r\nBit 6 - isDC\r\nBit 7-16 - Reserved"
+                    }
+                  }
+                },
+                {
+                  "_attributes": {
+                    "name": "ServiceCategory",
+                    "type": "ServiceCategory",
+                    "minOccurs": "0",
+                    "maxOccurs": "1"
+                  }
+                },
+                {
+                  "_attributes": {
+                    "name": "status",
+                    "minOccurs": "0",
+                    "maxOccurs": "1",
+                    "type": "UInt8"
+                  },
+                  "xs:annotation": {
+                    "xs:documentation": {
+                      "_text": "Specifies the current status of this usage point.\r\n\r\nValid values include:\r\n\r\n0 = off\r\n1 = on"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "_attributes": {
+          "name": "ElectricPowerQualitySummary"
+        },
+        "xs:annotation": {
+          "xs:documentation": {
+            "_text": "A summary of power quality events. This information represents a summary of power quality information typically required by customer facility energy management systems. It is not intended to satisfy the detailed requirements of power quality monitoring. All values are as defined by measurementProtocol during the period. The standards typically also give ranges of allowed values; the information attributes are the raw measurements, not the \"yes/no\" determination by the various standards. See referenced standards for definition, measurement protocol  and period."
+          }
+        },
+        "xs:complexContent": {
+          "xs:extension": {
+            "_attributes": {
+              "base": "IdentifiedObject"
+            },
+            "xs:sequence": {
+              "xs:element": [
+                {
+                  "_attributes": {
+                    "name": "flickerPlt",
+                    "minOccurs": "0",
+                    "maxOccurs": "1",
+                    "type": "Int48"
+                  },
+                  "xs:annotation": {
+                    "xs:documentation": {
+                      "_text": "A measurement of long term Rapid Voltage Change in hundredths of a Volt.\r\n\r\nflickerPlt is derived from 2 hours of Pst values (12 values combined in cubic relationship)."
+                    }
+                  }
+                },
+                {
+                  "_attributes": {
+                    "name": "flickerPst",
+                    "minOccurs": "0",
+                    "maxOccurs": "1",
+                    "type": "Int48"
+                  },
+                  "xs:annotation": {
+                    "xs:documentation": {
+                      "_text": "flickerPst is a value measured over 10 minutes that characterizes the likelihood that the voltage fluctuations would result in perceptible light flicker. A value of 1.0 is designed to represent the level that 50% of people would perceive flicker in a 60 watt incandescent bulb. \r\n\r\nThe value reported is represented as an integer in hundredths."
+                    }
+                  }
+                },
+                {
+                  "_attributes": {
+                    "name": "harmonicVoltage",
+                    "minOccurs": "0",
+                    "maxOccurs": "1",
+                    "type": "Int48"
+                  },
+                  "xs:annotation": {
+                    "xs:documentation": {
+                      "_text": "A measurement of the Harmonic Voltage during the period. For DC, distortion is with respect to a signal of zero Hz."
+                    }
+                  }
+                },
+                {
+                  "_attributes": {
+                    "name": "longInterruptions",
+                    "minOccurs": "0",
+                    "maxOccurs": "1",
+                    "type": "Int48"
+                  },
+                  "xs:annotation": {
+                    "xs:documentation": {
+                      "_text": "A count of Long Interruption events (as defined by measurementProtocol) during the summary interval period."
+                    }
+                  }
+                },
+                {
+                  "_attributes": {
+                    "name": "mainsVoltage",
+                    "minOccurs": "0",
+                    "maxOccurs": "1",
+                    "type": "Int48"
+                  },
+                  "xs:annotation": {
+                    "xs:documentation": {
+                      "_text": "A measurement of the Mains [Signaling] Voltage during the summary interval period in uV."
+                    }
+                  }
+                },
+                {
+                  "_attributes": {
+                    "name": "measurementProtocol",
+                    "minOccurs": "0",
+                    "maxOccurs": "1",
+                    "type": "UInt8"
+                  },
+                  "xs:annotation": {
+                    "xs:documentation": {
+                      "_text": "A reference to the source standard used as the measurement protocol definition. \r\n\r\nExamples are:\r\n0 = \"IEEE1519-2009\"\r\n1 = \"EN50160\""
+                    }
+                  }
+                },
+                {
+                  "_attributes": {
+                    "name": "powerFrequency",
+                    "minOccurs": "0",
+                    "maxOccurs": "1",
+                    "type": "Int48"
+                  },
+                  "xs:annotation": {
+                    "xs:documentation": {
+                      "_text": "A measurement of the power frequency during the summary interval period in uHz."
+                    }
+                  }
+                },
+                {
+                  "_attributes": {
+                    "name": "rapidVoltageChanges",
+                    "minOccurs": "0",
+                    "maxOccurs": "1",
+                    "type": "Int48"
+                  },
+                  "xs:annotation": {
+                    "xs:documentation": {
+                      "_text": "A count of Rapid Voltage Change events during the summary interval period"
+                    }
+                  }
+                },
+                {
+                  "_attributes": {
+                    "name": "shortInterruptions",
+                    "minOccurs": "0",
+                    "maxOccurs": "1",
+                    "type": "Int48"
+                  },
+                  "xs:annotation": {
+                    "xs:documentation": {
+                      "_text": "A count of Short Interruption events during the summary interval period"
+                    }
+                  }
+                },
+                {
+                  "_attributes": {
+                    "name": "summaryInterval",
+                    "minOccurs": "1",
+                    "maxOccurs": "1",
+                    "type": "DateTimeInterval"
+                  },
+                  "xs:annotation": {
+                    "xs:documentation": {
+                      "_text": "Interval of summary period"
+                    }
+                  }
+                },
+                {
+                  "_attributes": {
+                    "name": "supplyVoltageDips",
+                    "minOccurs": "0",
+                    "maxOccurs": "1",
+                    "type": "Int48"
+                  },
+                  "xs:annotation": {
+                    "xs:documentation": {
+                      "_text": "A count of Supply Voltage Dip events during the summary interval period"
+                    }
+                  }
+                },
+                {
+                  "_attributes": {
+                    "name": "supplyVoltageImbalance",
+                    "minOccurs": "0",
+                    "maxOccurs": "1",
+                    "type": "Int48"
+                  },
+                  "xs:annotation": {
+                    "xs:documentation": {
+                      "_text": "A count of Supply Voltage Imbalance events during the summary interval period"
+                    }
+                  }
+                },
+                {
+                  "_attributes": {
+                    "name": "supplyVoltageVariations",
+                    "minOccurs": "0",
+                    "maxOccurs": "1",
+                    "type": "Int48"
+                  },
+                  "xs:annotation": {
+                    "xs:documentation": {
+                      "_text": "A count of Supply Voltage Variations during the summary interval period"
+                    }
+                  }
+                },
+                {
+                  "_attributes": {
+                    "name": "tempOvervoltage",
+                    "minOccurs": "0",
+                    "maxOccurs": "1",
+                    "type": "Int48"
+                  },
+                  "xs:annotation": {
+                    "xs:documentation": {
+                      "_text": "A count of Temporary Overvoltage events (as defined by measurementProtocol) during the summary interval period"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "_attributes": {
+          "name": "ElectricPowerUsageSummary"
+        },
+        "xs:annotation": {
+          "xs:documentation": {
+            "_text": "Summary of usage for a billing period"
+          }
+        },
+        "xs:complexContent": {
+          "xs:extension": {
+            "_attributes": {
+              "base": "IdentifiedObject"
+            },
+            "xs:sequence": {
+              "xs:element": [
+                {
+                  "_attributes": {
+                    "name": "billingPeriod",
+                    "minOccurs": "0",
+                    "maxOccurs": "1",
+                    "type": "DateTimeInterval"
+                  },
+                  "xs:annotation": {
+                    "xs:documentation": {
+                      "_text": "The billing period to which the included measurements apply"
+                    }
+                  }
+                },
+                {
+                  "_attributes": {
+                    "name": "billLastPeriod",
+                    "minOccurs": "0",
+                    "maxOccurs": "1",
+                    "type": "Int48"
+                  },
+                  "xs:annotation": {
+                    "xs:documentation": {
+                      "_text": "The amount of the bill for the previous billing period , in hundred-thousandths of the currency specified in the ReadingType for this reading (e.g., 840 = USD, US dollar)."
+                    }
+                  }
+                },
+                {
+                  "_attributes": {
+                    "name": "billToDate",
+                    "minOccurs": "0",
+                    "maxOccurs": "1",
+                    "type": "Int48"
+                  },
+                  "xs:annotation": {
+                    "xs:documentation": {
+                      "_text": "The bill amount related to the billing period as of the date received, in hundred-thousandths of the currency specified in the ReadingType for this reading. (e.g., 840 = USD, US dollar)."
+                    }
+                  }
+                },
+                {
+                  "_attributes": {
+                    "name": "costAdditionalLastPeriod",
+                    "minOccurs": "0",
+                    "maxOccurs": "1",
+                    "type": "Int48"
+                  },
+                  "xs:annotation": {
+                    "xs:documentation": {
+                      "_text": "Additional charges from the last billing period, in hundred-thousandths of the currency specified in the ReadingType for this reading.  (e.g., 840 = USD, US dollar)."
+                    }
+                  }
+                },
+                {
+                  "_attributes": {
+                    "name": "currency",
+                    "minOccurs": "0",
+                    "maxOccurs": "1",
+                    "type": "CurrencyCode"
+                  },
+                  "xs:annotation": {
+                    "xs:documentation": {
+                      "_text": "The ISO 4217 code indicating the currency applicable to the bill amounts in the summary. See list at http://tiny.cc/4217"
+                    }
+                  }
+                },
+                {
+                  "_attributes": {
+                    "name": "currentBillingPeriodOverAllConsumption",
+                    "minOccurs": "0",
+                    "maxOccurs": "1",
+                    "type": "SummaryMeasurement"
+                  },
+                  "xs:annotation": {
+                    "xs:documentation": {
+                      "_text": "The total consumption for the billing period"
+                    }
+                  }
+                },
+                {
+                  "_attributes": {
+                    "name": "currentDayLastYearNetConsumption",
+                    "minOccurs": "0",
+                    "maxOccurs": "1",
+                    "type": "SummaryMeasurement"
+                  },
+                  "xs:annotation": {
+                    "xs:documentation": {
+                      "_text": "The amount of energy consumed one year ago interpreted as same day of week same week of year (see ISO 8601)."
+                    }
+                  }
+                },
+                {
+                  "_attributes": {
+                    "name": "currentDayNetConsumption",
+                    "minOccurs": "0",
+                    "maxOccurs": "1",
+                    "type": "SummaryMeasurement"
+                  },
+                  "xs:annotation": {
+                    "xs:documentation": {
+                      "_text": "Net consumption for the current day (delivered - received)"
+                    }
+                  }
+                },
+                {
+                  "_attributes": {
+                    "name": "currentDayOverallConsumption",
+                    "minOccurs": "0",
+                    "maxOccurs": "1",
+                    "type": "SummaryMeasurement"
+                  },
+                  "xs:annotation": {
+                    "xs:documentation": {
+                      "_text": "Overall energy consumption for the current day"
+                    }
+                  }
+                },
+                {
+                  "_attributes": {
+                    "name": "peakDemand",
+                    "minOccurs": "0",
+                    "maxOccurs": "1",
+                    "type": "SummaryMeasurement"
+                  },
+                  "xs:annotation": {
+                    "xs:documentation": {
+                      "_text": "Peak demand recorded for the current period"
+                    }
+                  }
+                },
+                {
+                  "_attributes": {
+                    "name": "previousDayLastYearOverallConsumption",
+                    "minOccurs": "0",
+                    "maxOccurs": "1",
+                    "type": "SummaryMeasurement"
+                  },
+                  "xs:annotation": {
+                    "xs:documentation": {
+                      "_text": "The amount of energy consumed on the previous day one year ago interpreted as same day of week same week of year  (see ISO 8601)."
+                    }
+                  }
+                },
+                {
+                  "_attributes": {
+                    "name": "previousDayNetConsumption",
+                    "minOccurs": "0",
+                    "maxOccurs": "1",
+                    "type": "SummaryMeasurement"
+                  },
+                  "xs:annotation": {
+                    "xs:documentation": {
+                      "_text": "Net consumption for the previous day"
+                    }
+                  }
+                },
+                {
+                  "_attributes": {
+                    "name": "previousDayOverallConsumption",
+                    "minOccurs": "0",
+                    "maxOccurs": "1",
+                    "type": "SummaryMeasurement"
+                  },
+                  "xs:annotation": {
+                    "xs:documentation": {
+                      "_text": "The total consumption for the previous day"
+                    }
+                  }
+                },
+                {
+                  "_attributes": {
+                    "name": "qualityOfReading",
+                    "minOccurs": "0",
+                    "maxOccurs": "1",
+                    "type": "QualityOfReading"
+                  },
+                  "xs:annotation": {
+                    "xs:documentation": {
+                      "_text": "Indication of the quality of the summary readings"
+                    }
+                  }
+                },
+                {
+                  "_attributes": {
+                    "name": "ratchetDemand",
+                    "minOccurs": "0",
+                    "maxOccurs": "1",
+                    "type": "SummaryMeasurement"
+                  },
+                  "xs:annotation": {
+                    "xs:documentation": {
+                      "_text": "The current ratchet demand value for the ratchet demand period"
+                    }
+                  }
+                },
+                {
+                  "_attributes": {
+                    "name": "ratchetDemandPeriod",
+                    "minOccurs": "0",
+                    "maxOccurs": "1",
+                    "type": "DateTimeInterval"
+                  },
+                  "xs:annotation": {
+                    "xs:documentation": {
+                      "_text": "The period over which the ratchet demand applies"
+                    }
+                  }
+                },
+                {
+                  "_attributes": {
+                    "name": "statusTimeStamp",
+                    "minOccurs": "1",
+                    "maxOccurs": "1",
+                    "type": "TimeType"
+                  },
+                  "xs:annotation": {
+                    "xs:documentation": {
+                      "_text": "Date/Time status of this UsageSummary"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "_attributes": {
+          "name": "AccumulationBehaviourType"
+        },
+        "xs:annotation": {
+          "xs:documentation": {
+            "_text": "Valid values include:\r\n\r\n0 = Not Applicable\r\n1 = BulkQuantity\r\n3 = Cumulative\r\n4 = DeltaData\r\n6 = Indicating\r\n9 = Summation\r\n12 = Instantaneous"
+          }
+        },
+        "xs:simpleContent": {
+          "xs:extension": {
+            "_attributes": {
+              "base": "UInt8"
+            }
+          }
+        }
+      },
+      {
+        "_attributes": {
+          "name": "CommodityType"
+        },
+        "xs:annotation": {
+          "xs:documentation": {
+            "_text": "Valid values include:\r\n\r\n0 = Not Applicable\r\n1 = Electricity metered value \r\n4 = Air\r\n7 = NaturalGas\r\n8 = Propane\r\n9 = PotableWater\r\n10 = Steam\r\n11 = WasteWater\r\n12 = HeatingFluid\r\n13 = CoolingFluid"
+          }
+        },
+        "xs:simpleContent": {
+          "xs:extension": {
+            "_attributes": {
+              "base": "UInt8"
+            }
+          }
+        }
+      },
+      {
+        "_attributes": {
+          "name": "ConsumptionTierType"
+        },
+        "xs:annotation": {
+          "xs:documentation": {
+            "_text": "Valid values include:\r\n\r\n0 = Not Applicable\r\n1 = Block Tier 1\r\n2 = Block Tier 2\r\n3 = Block Tier 3\r\n4 = Block Tier 4\r\n5 = Block Tier 5\r\n6 = Block Tier 6\r\n7 = Block Tier 7\r\n8 = Block Tier 8\r\n9 = Block Tier 9\r\n10 = Block Tier 10\r\n11 = Block Tier 11\r\n12 = Block Tier 12\r\n13 = Block Tier 13\r\n14 = Block Tier 14\r\n15 = Block Tier 15\r\n16 = Block Tier 16"
+          }
+        },
+        "xs:simpleContent": {
+          "xs:extension": {
+            "_attributes": {
+              "base": "UInt8"
+            }
+          }
+        }
+      },
+      {
+        "_attributes": {
+          "name": "CurrencyCode"
+        },
+        "xs:annotation": {
+          "xs:documentation": {
+            "_text": "Follows codes defined in ISO 4217. Full list at tiny.cc/4217.\r\n\r\n0 - Not Applicable\r\n36 - Australian Dollar\r\n124 - Canadian Dollar\r\n840 - US Dollar\r\n978 - Euro"
+          }
+        },
+        "xs:simpleContent": {
+          "xs:extension": {
+            "_attributes": {
+              "base": "UInt8"
+            }
+          }
+        }
+      },
+      {
+        "_attributes": {
+          "name": "DataQualifierType"
+        },
+        "xs:annotation": {
+          "xs:documentation": {
+            "_text": "Valid values include:\r\n\r\n0 = Not Applicable\r\n2 = Average\r\n8 = Maximum\r\n9 = Minimum\r\n12 = Normal"
+          }
+        },
+        "xs:simpleContent": {
+          "xs:extension": {
+            "_attributes": {
+              "base": "UInt8"
+            }
+          }
+        }
+      },
+      {
+        "_attributes": {
+          "name": "DateTimeInterval"
+        },
+        "xs:annotation": {
+          "xs:documentation": {
+            "_text": "Interval of date and time. End is not included because it can be derived from the start and the duration."
+          }
+        },
+        "xs:complexContent": {
+          "xs:extension": {
+            "_attributes": {
+              "base": "Object"
+            },
+            "xs:sequence": {
+              "xs:element": [
+                {
+                  "_attributes": {
+                    "name": "duration",
+                    "minOccurs": "1",
+                    "maxOccurs": "1",
+                    "type": "UInt32"
+                  },
+                  "xs:annotation": {
+                    "xs:documentation": {
+                      "_text": "Duration of the interval, in seconds."
+                    }
+                  }
+                },
+                {
+                  "_attributes": {
+                    "name": "start",
+                    "minOccurs": "1",
+                    "maxOccurs": "1",
+                    "type": "TimeType"
+                  },
+                  "xs:annotation": {
+                    "xs:documentation": {
+                      "_text": "Date and time that this interval started."
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "_attributes": {
+          "name": "FlowDirectionType"
+        },
+        "xs:annotation": {
+          "xs:documentation": {
+            "_text": "Valid values include:\r\n\r\n0 = Not Applicable\r\n1 = Forward\r\n19 = Reverse"
+          }
+        },
+        "xs:simpleContent": {
+          "xs:extension": {
+            "_attributes": {
+              "base": "UInt8"
+            }
+          }
+        }
+      },
+      {
+        "_attributes": {
+          "name": "KindType"
+        },
+        "xs:annotation": {
+          "xs:documentation": {
+            "_text": "Valid values include:\r\n\r\n0 = Not Applicable\r\n3 = Currency\r\n4 = Current\r\n5 = CurrentAngle\r\n7 = Date\r\n8 = Demand\r\n12 = Energy\r\n15 = Frequency\r\n37 = Power\r\n38 = PowerFactor\r\n40 = QuantityPower\r\n54 = Voltage\r\n55 = VoltageAngle\r\n64 = DistortionPowerFactor\r\n155 = VolumetricFlow"
+          }
+        },
+        "xs:simpleContent": {
+          "xs:extension": {
+            "_attributes": {
+              "base": "UInt8"
+            }
+          }
+        }
+      },
+      {
+        "_attributes": {
+          "name": "PhaseCode"
+        },
+        "xs:annotation": {
+          "xs:documentation": {
+            "_text": "Valid values include:\r\n\r\n0 = Not Applicable\r\n129 = Phase AN\r\n128 = Phase A\r\n132 = Phase AB\r\n64 = Phase BN\r\n64 = Phase B\r\n32 = Phase CN\r\n32 = Phase C\r\n224 = Phase ABC\r\n66 = Phase BC\r\n40 = Phase CA\r\n512 = Phase S1\r\n256 = Phase S2\r\n768 = Phase S1S2\r\n513 = Phase S1N\r\n257 = Phase S2N\r\n769 = Phase S1S2N"
+          }
+        },
+        "xs:simpleContent": {
+          "xs:extension": {
+            "_attributes": {
+              "base": "UInt16"
+            }
+          }
+        }
+      },
+      {
+        "_attributes": {
+          "name": "QualityOfReading"
+        },
+        "xs:annotation": {
+          "xs:documentation": {
+            "_text": "List of codes indicating the quality of the reading, using specification:\r\n\r\n0 - valid: data that has gone through all required validation checks and either passed them all or has been verified \r\n7 - manually edited: Replaced or approved by a human\r\n8 - estimated using reference day: data value was replaced by a machine computed value based on analysis of historical data using the same type of measurement.\r\n9 - estimated using linear interpolation: data value was computed using linear interpolation based on the readings before and after it\r\n10 - questionable: data that has failed one or more checks\r\n11 - derived: data that has been calculated (using logic or mathematical operations), not necessarily measured directly \r\n12 - projected (forecast): data that has been calculated as a projection or forecast of future readings\r\n13 - mixed: indicates that the quality of this reading has mixed characteristics\r\n14 - raw: data that has not gone through the validation, editing and estimation process\r\n15 - normalized for weather: the values have been adjusted to account for weather, in order to compare usage in different climates\r\n16 - other: specifies that a characteristic applies other than those defined\r\n17 - validated: data that has been validated and possibly edited and/or estimated in accordance with approved procedures\r\n18 - verified: data that failed at least one of the required validation checks but was determined to represent actual usage"
+          }
+        },
+        "xs:simpleContent": {
+          "xs:extension": {
+            "_attributes": {
+              "base": "UInt8"
+            }
+          }
+        }
+      },
+      {
+        "_attributes": {
+          "name": "ServiceKind"
+        },
+        "xs:annotation": {
+          "xs:documentation": {
+            "_text": "Valid values include:\r\n\r\n0 - electricity\r\n1 - gas\r\n2 - water\r\n4 - pressure\r\n5 - heat\r\n6 - cold\r\n7 - communication\r\n8 - time"
+          }
+        },
+        "xs:simpleContent": {
+          "xs:extension": {
+            "_attributes": {
+              "base": "UInt8"
+            }
+          }
+        }
+      },
+      {
+        "_attributes": {
+          "name": "TimeAttributeType"
+        },
+        "xs:annotation": {
+          "xs:documentation": {
+            "_text": "Valid values include:\r\n\r\n0 = Not Applicable\r\n1 = 10-minute\r\n2 = 15-minute\r\n4 = 24-hour\r\n5 = 30-minute\r\n7 = 60-minute\r\n11 = Daily\r\n13 = Monthly\r\n15 = Present\r\n16 = Previous\r\n24 = Weekly\r\n32 = ForTheSpecifiedPeriod\r\n79 = Daily30minuteFixedBlock"
+          }
+        },
+        "xs:simpleContent": {
+          "xs:extension": {
+            "_attributes": {
+              "base": "UInt8"
+            }
+          }
+        }
+      },
+      {
+        "_attributes": {
+          "name": "TOUType"
+        },
+        "xs:annotation": {
+          "xs:documentation": {
+            "_text": "Valid values include:\r\n\r\n0 = NotApplicable\r\n1 = TOU A\r\n2 = TOU B\r\n3 = TOU C\r\n4 = TOU D\r\n5 = TOU E\r\n6 = TOU F\r\n7 = TOU G\r\n8 = TOU H\r\n9 = TOU I\r\n10 = TOU J\r\n11 = TOU K\r\n12 = TOU L\r\n13 = TOU M\r\n14 = TOU N\r\n15 = TOU O"
+          }
+        },
+        "xs:simpleContent": {
+          "xs:extension": {
+            "_attributes": {
+              "base": "UInt8"
+            }
+          }
+        }
+      },
+      {
+        "_attributes": {
+          "name": "UomType"
+        },
+        "xs:annotation": {
+          "xs:documentation": {
+            "_text": "Valid values include:\r\n\r\n0 = Not Applicable\r\n5 = A (Current)\r\n29 = Voltage\r\n31 = J (Energy joule)\r\n33 = Hz (Frequency)\r\n38 = Real power (Watts)\r\n42 = m3 (Cubic Meter)\r\n61 = VA (Apparent power)\r\n63 = VAr (Reactive power)\r\n65 = Cos? (Power factor)\r\n67 = V� (Volts squared)\r\n69 = A� (Amp squared)\r\n71 = VAh (Apparent energy)\r\n72 = Real energy (Watt-hours)\r\n73 = VArh (Reactive energy)\r\n106 = Ah (Ampere-hours / Available Charge)\r\n119 = ft3 (Cubic Feet)\r\n122 = ft3/h (Cubic Feet per Hour)\r\n125 = m3/h (Cubic Meter per Hour)\r\n128 = US gl (US Gallons)\r\n129 = US gl/h (US Gallons per Hour)\r\n130 = IMP gl (Imperial Gallons)\r\n131 = IMP gl/h (Imperial Gallons per Hour)\r\n132 = BTU\r\n133 = BTU/h\r\n134 = Liter\r\n137 = L/h (Liters per Hour)\r\n140 = PA(gauge)\r\n155 = PA(absolute)\r\n169 = Therm"
+          }
+        },
+        "xs:simpleContent": {
+          "xs:extension": {
+            "_attributes": {
+              "base": "UInt8"
+            }
+          }
+        }
+      },
+      {
+        "_attributes": {
+          "name": "SummaryMeasurement"
+        },
+        "xs:annotation": {
+          "xs:documentation": {
+            "_text": "An aggregated summary measurement reading."
+          }
+        },
+        "xs:complexContent": {
+          "xs:extension": {
+            "_attributes": {
+              "base": "Object"
+            },
+            "xs:sequence": {
+              "xs:element": [
+                {
+                  "_attributes": {
+                    "name": "powerOfTenMultiplier",
+                    "minOccurs": "0",
+                    "maxOccurs": "1",
+                    "type": "PowerOfTenMultiplierType"
+                  },
+                  "xs:annotation": {
+                    "xs:documentation": {
+                      "_text": "The multiplier part of the unit of measure, e.g. \"kilo\" (k)"
+                    }
+                  }
+                },
+                {
+                  "_attributes": {
+                    "name": "timeStamp",
+                    "minOccurs": "0",
+                    "maxOccurs": "1",
+                    "type": "TimeType"
+                  },
+                  "xs:annotation": {
+                    "xs:documentation": {
+                      "_text": "The date and time (if needed) of the summary measurement."
+                    }
+                  }
+                },
+                {
+                  "_attributes": {
+                    "name": "uom",
+                    "minOccurs": "0",
+                    "maxOccurs": "1",
+                    "type": "UomType"
+                  },
+                  "xs:annotation": {
+                    "xs:documentation": {
+                      "_text": "The units of the reading, e.g. \"Wh\""
+                    }
+                  }
+                },
+                {
+                  "_attributes": {
+                    "name": "value",
+                    "minOccurs": "0",
+                    "maxOccurs": "1",
+                    "type": "UInt48"
+                  },
+                  "xs:annotation": {
+                    "xs:documentation": {
+                      "_text": "The value of the summary measurement."
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "_attributes": {
+          "name": "BatchItemInfo"
+        },
+        "xs:annotation": {
+          "xs:documentation": {
+            "_text": "Includes elements that make it possible to include multiple transactions in a single (batch) request."
+          }
+        },
+        "xs:complexContent": {
+          "xs:extension": {
+            "_attributes": {
+              "base": "Object"
+            },
+            "xs:sequence": {
+              "xs:element": [
+                {
+                  "_attributes": {
+                    "name": "name",
+                    "minOccurs": "0",
+                    "maxOccurs": "1",
+                    "type": "HexBinary16"
+                  },
+                  "xs:annotation": {
+                    "xs:documentation": {
+                      "_text": "An identifier for this object that is only unique within the containing collection."
+                    }
+                  }
+                },
+                {
+                  "_attributes": {
+                    "name": "operation",
+                    "minOccurs": "0",
+                    "maxOccurs": "1",
+                    "type": "UInt8"
+                  },
+                  "xs:annotation": {
+                    "xs:documentation": {
+                      "_text": "Specifies the operation requested of this item. \r\n\r\n0=Create\r\n1=Read\r\n2=Update\r\n3=Delete"
+                    }
+                  }
+                },
+                {
+                  "_attributes": {
+                    "name": "statusCode",
+                    "minOccurs": "0",
+                    "maxOccurs": "1",
+                    "type": "UInt16"
+                  },
+                  "xs:annotation": {
+                    "xs:documentation": {
+                      "_text": "Indicates the status code of the associated transaction. \r\n\r\n200 - Ok\r\n201 - Created\r\n204 - No Content\r\n301 - Moved Permanently\r\n302 - Redirect\r\n304 - Not Modified\r\n400 - Bad Request\r\n401 - Unauthorized\r\n403 - Forbidden\r\n404 - Not Found\r\n405 - Method Not Allowed\r\n410 - Gone\r\n500 - Internal Server Error"
+                    }
+                  }
+                },
+                {
+                  "_attributes": {
+                    "name": "statusReason",
+                    "minOccurs": "0",
+                    "maxOccurs": "1",
+                    "type": "String256"
+                  },
+                  "xs:annotation": {
+                    "xs:documentation": {
+                      "_text": "Indicates the reason for the indicated status code."
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "_attributes": {
+          "name": "Object"
+        },
+        "xs:annotation": {
+          "xs:documentation": {
+            "_text": "Superclass of all object classes to allow extensions."
+          }
+        },
+        "xs:sequence": {
+          "xs:element": {
+            "_attributes": {
+              "name": "extension",
+              "minOccurs": "0",
+              "maxOccurs": "unbounded",
+              "type": "xs:anyType"
+            },
+            "xs:annotation": {
+              "xs:documentation": {
+                "_text": "Contains an extension."
+              }
+            }
+          }
+        }
+      },
+      {
+        "_attributes": {
+          "name": "ServiceStatus"
+        },
+        "xs:annotation": {
+          "xs:documentation": {
+            "_text": "Contains the current status of the service."
+          }
+        },
+        "xs:complexContent": {
+          "xs:extension": {
+            "_attributes": {
+              "base": "Object"
+            },
+            "xs:sequence": {
+              "xs:element": {
+                "_attributes": {
+                  "name": "currentStatus",
+                  "minOccurs": "1",
+                  "maxOccurs": "1",
+                  "type": "UInt8"
+                },
+                "xs:annotation": {
+                  "xs:documentation": {
+                    "_text": "The current status of the service. \r\n\r\n0 = Unavailable\r\n1 = Normal, operational"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "_attributes": {
+          "name": "Subscription"
+        },
+        "xs:annotation": {
+          "xs:documentation": {
+            "_text": "Defines the parameters of a subscription between Third Party and Data Custodian."
+          }
+        },
+        "xs:complexContent": {
+          "xs:extension": {
+            "_attributes": {
+              "base": "IdentifiedObject"
+            }
+          }
+        }
+      }
+    ],
+    "xs:simpleType": [
+      {
+        "_attributes": {
+          "name": "HexBinary128"
+        },
+        "xs:annotation": {
+          "xs:documentation": {
+            "_text": "A 128-bit field encoded as a hex string (32 characters / 16 octets)"
+          }
+        },
+        "xs:restriction": {
+          "_attributes": {
+            "base": "xs:hexBinary"
+          },
+          "xs:maxLength": {
+            "_attributes": {
+              "value": "16"
+            }
+          }
+        }
+      },
+      {
+        "_attributes": {
+          "name": "HexBinary16"
+        },
+        "xs:annotation": {
+          "xs:documentation": {
+            "_text": "A 16-bit field encoded as a hex string (4 characters / 2 octets)"
+          }
+        },
+        "xs:restriction": {
+          "_attributes": {
+            "base": "xs:hexBinary"
+          },
+          "xs:maxLength": {
+            "_attributes": {
+              "value": "2"
+            }
+          }
+        }
+      },
+      {
+        "_attributes": {
+          "name": "String256"
+        },
+        "xs:annotation": {
+          "xs:documentation": {
+            "_text": "Character string of max length 256"
+          }
+        },
+        "xs:restriction": {
+          "_attributes": {
+            "base": "xs:string"
+          },
+          "xs:maxLength": {
+            "_attributes": {
+              "value": "256"
+            }
+          }
+        }
+      },
+      {
+        "_attributes": {
+          "name": "String32"
+        },
+        "xs:annotation": {
+          "xs:documentation": {
+            "_text": "Character string of max length 32"
+          }
+        },
+        "xs:restriction": {
+          "_attributes": {
+            "base": "xs:string"
+          },
+          "xs:maxLength": {
+            "_attributes": {
+              "value": "32"
+            }
+          }
+        }
+      },
+      {
+        "_attributes": {
+          "name": "String64"
+        },
+        "xs:annotation": {
+          "xs:documentation": {
+            "_text": "Character string of max length 64"
+          }
+        },
+        "xs:restriction": {
+          "_attributes": {
+            "base": "xs:string"
+          },
+          "xs:maxLength": {
+            "_attributes": {
+              "value": "64"
+            }
+          }
+        }
+      },
+      {
+        "_attributes": {
+          "name": "UInt16"
+        },
+        "xs:annotation": {
+          "xs:documentation": {
+            "_text": "Unsigned integer, max inclusive 65535 (2^16-1), same as xs:unsignedShort"
+          }
+        },
+        "xs:restriction": {
+          "_attributes": {
+            "base": "xs:unsignedShort"
+          }
+        }
+      },
+      {
+        "_attributes": {
+          "name": "UInt32"
+        },
+        "xs:annotation": {
+          "xs:documentation": {
+            "_text": "Unsigned integer, max inclusive 4294967295 (2^32-1), same as xs:unsignedInt"
+          }
+        },
+        "xs:restriction": {
+          "_attributes": {
+            "base": "xs:unsignedInt"
+          }
+        }
+      },
+      {
+        "_attributes": {
+          "name": "UInt48"
+        },
+        "xs:annotation": {
+          "xs:documentation": {
+            "_text": "Unsigned integer, max inclusive 281474976710655 (2^48-1), restriction of xs:unsignedLong"
+          }
+        },
+        "xs:restriction": {
+          "_attributes": {
+            "base": "xs:unsignedLong"
+          },
+          "xs:maxInclusive": {
+            "_attributes": {
+              "value": "281474976710655"
+            }
+          }
+        }
+      },
+      {
+        "_attributes": {
+          "name": "UInt8"
+        },
+        "xs:annotation": {
+          "xs:documentation": {
+            "_text": "Unsigned integer, max inclusive 255 (2^8-1), same as xs:unsignedByte"
+          }
+        },
+        "xs:restriction": {
+          "_attributes": {
+            "base": "xs:unsignedByte"
+          }
+        }
+      },
+      {
+        "_attributes": {
+          "name": "Int48"
+        },
+        "xs:annotation": {
+          "xs:documentation": {
+            "_text": "Signed integer, max inclusive 281474976710655 (2^48-1), restriction of xs:long"
+          }
+        },
+        "xs:restriction": {
+          "_attributes": {
+            "base": "xs:long"
+          },
+          "xs:maxInclusive": {
+            "_attributes": {
+              "value": "281474976710655"
+            }
+          }
+        }
+      },
+      {
+        "_attributes": {
+          "name": "PowerOfTenMultiplierType"
+        },
+        "xs:annotation": {
+          "xs:documentation": {
+            "_text": "Valid values include:\r\n\r\n0 = None\r\n1 = deca=x10\r\n2 = hecto=x100\r\n-3 = mili=x10-3\r\n3 = kilo=x1000\r\n6 = Mega=x106\r\n-6 = micro=x10-3\r\n9 = Giga=x109"
+          }
+        },
+        "xs:restriction": {
+          "_attributes": {
+            "base": "xs:byte"
+          }
+        }
+      },
+      {
+        "_attributes": {
+          "name": "TimeType"
+        },
+        "xs:annotation": {
+          "xs:documentation": {
+            "_text": "Time is a signed 64-bit value representing the number of seconds since 0 hours, 0 minutes, 0 seconds, on the 1st of January, 1970."
+          }
+        },
+        "xs:restriction": {
+          "_attributes": {
+            "base": "xs:long"
+          }
+        }
+      }
+    ],
+    "xs:element": [
+      {
+        "_attributes": {
+          "name": "ApplicationInformation",
+          "type": "ApplicationInformation"
+        }
+      },
+      {
+        "_attributes": {
+          "name": "Authorization",
+          "type": "Authorization"
+        }
+      },
+      {
+        "_attributes": {
+          "name": "IntervalBlock",
+          "type": "IntervalBlock"
+        }
+      },
+      {
+        "_attributes": {
+          "name": "IntervalReading",
+          "type": "IntervalReading"
+        }
+      },
+      {
+        "_attributes": {
+          "name": "MeterReading",
+          "type": "MeterReading"
+        }
+      },
+      {
+        "_attributes": {
+          "name": "ReadingQuality",
+          "type": "ReadingQuality"
+        }
+      },
+      {
+        "_attributes": {
+          "name": "ReadingType",
+          "type": "ReadingType"
+        }
+      },
+      {
+        "_attributes": {
+          "name": "IdentifiedObject",
+          "type": "IdentifiedObject"
+        }
+      },
+      {
+        "_attributes": {
+          "name": "ServiceCategory",
+          "type": "ServiceCategory"
+        }
+      },
+      {
+        "_attributes": {
+          "name": "UsagePoint",
+          "type": "UsagePoint"
+        }
+      },
+      {
+        "_attributes": {
+          "name": "ElectricPowerQualitySummary",
+          "type": "ElectricPowerQualitySummary"
+        }
+      },
+      {
+        "_attributes": {
+          "name": "ElectricPowerUsageSummary",
+          "type": "ElectricPowerUsageSummary"
+        }
+      },
+      {
+        "_attributes": {
+          "name": "AccumulationBehaviourType",
+          "type": "AccumulationBehaviourType"
+        }
+      },
+      {
+        "_attributes": {
+          "name": "CommodityType",
+          "type": "CommodityType"
+        }
+      },
+      {
+        "_attributes": {
+          "name": "ConsumptionTierType",
+          "type": "ConsumptionTierType"
+        }
+      },
+      {
+        "_attributes": {
+          "name": "CurrencyCode",
+          "type": "CurrencyCode"
+        }
+      },
+      {
+        "_attributes": {
+          "name": "DataQualifierType",
+          "type": "DataQualifierType"
+        }
+      },
+      {
+        "_attributes": {
+          "name": "DateTimeInterval",
+          "type": "DateTimeInterval"
+        }
+      },
+      {
+        "_attributes": {
+          "name": "FlowDirectionType",
+          "type": "FlowDirectionType"
+        }
+      },
+      {
+        "_attributes": {
+          "name": "KindType",
+          "type": "KindType"
+        }
+      },
+      {
+        "_attributes": {
+          "name": "PhaseCode",
+          "type": "PhaseCode"
+        }
+      },
+      {
+        "_attributes": {
+          "name": "QualityOfReading",
+          "type": "QualityOfReading"
+        }
+      },
+      {
+        "_attributes": {
+          "name": "ServiceKind",
+          "type": "ServiceKind"
+        }
+      },
+      {
+        "_attributes": {
+          "name": "TimeAttributeType",
+          "type": "TimeAttributeType"
+        }
+      },
+      {
+        "_attributes": {
+          "name": "TOUType",
+          "type": "TOUType"
+        }
+      },
+      {
+        "_attributes": {
+          "name": "UomType",
+          "type": "UomType"
+        }
+      },
+      {
+        "_attributes": {
+          "name": "SummaryMeasurement",
+          "type": "SummaryMeasurement"
+        }
+      },
+      {
+        "_attributes": {
+          "name": "BatchItemInfo",
+          "type": "BatchItemInfo"
+        }
+      },
+      {
+        "_attributes": {
+          "name": "Object",
+          "type": "Object"
+        }
+      },
+      {
+        "_attributes": {
+          "name": "ServiceStatus",
+          "type": "ServiceStatus"
+        }
+      },
+      {
+        "_attributes": {
+          "name": "Subscription",
+          "type": "Subscription"
+        }
+      }
+    ]
+  }
+}

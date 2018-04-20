@@ -105,7 +105,7 @@ var fs = require('fs');
 // Converts XML to jSON
 var convert = require('xml-js');
 var xml = require('fs').readFileSync('./XML/espiSchema.xsd', 'utf8');
-var options = {ignoreComment: true, alwaysChildren: true};
+var options = {ignoreComment: true, alwaysChildren: true, spaces: 2, compact: true};
 var result = convert.xml2json(xml, options); // or convert.xml2json(xml, options)
 
 
