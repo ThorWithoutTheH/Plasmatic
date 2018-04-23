@@ -104,7 +104,7 @@ var fs = require('fs');
 
 // Converts XML to jSON
 var convert = require('xml-js');
-var xml = require('fs').readFileSync('./XML/espiSchema.xsd', 'utf8');
+var xml = require('fs').readFileSync('./XML/pge_electric_interval_data_2011-03-06_to_2012-04-06 A1 Small-Med Business Summer Peak.xml', 'utf8');
 var options = {ignoreComment: true, alwaysChildren: true, spaces: 2, compact: true};
 var result = convert.xml2json(xml, options); // or convert.xml2json(xml, options)
 
