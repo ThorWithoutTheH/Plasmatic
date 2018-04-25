@@ -105,8 +105,13 @@ var fs = require('fs');
 /*
 // Converts XML to jSON
 var convert = require('xml-js');
+<<<<<<< HEAD
 var xml = require('fs').readFileSync('./XML/tony-energy-xml.xml', 'utf8');
 var options = {ignoreComment: true, alwaysChildren: false, spaces: 4, compact: true /* , ignoreAttributes: true };
+=======
+var xml = require('fs').readFileSync('./XML/pge_electric_interval_data_2011-03-06_to_2012-04-06 A1 Small-Med Business Summer Peak.xml', 'utf8');
+var options = {ignoreComment: true, alwaysChildren: true, spaces: 2, compact: true};
+>>>>>>> fb311f3b985fd7dab4cded0468e2d8082d55a492
 var result = convert.xml2json(xml, options); // or convert.xml2json(xml, options)
 
 var jSONData = JSON.parse(result);
