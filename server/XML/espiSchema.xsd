@@ -11,11 +11,7 @@
 					<xs:element name="dataCustodianApplicationStatus" type="UInt8" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>A code indicating the current status of the application. This value is provided by Data Custodian, cannot be modified by Third Party.
-Defined statuses are:
-1 - Review
-2 - Production (Live)
-3 - On hold 
-4 - Revoked</xs:documentation>
+</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="dataCustodianDefaultBatchResource" type="xs:anyURI" minOccurs="0" maxOccurs="1">

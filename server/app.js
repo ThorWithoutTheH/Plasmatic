@@ -102,19 +102,28 @@ app.use('/api', boat);
 
 var fs = require('fs');
 
+/*
 // Converts XML to jSON
 var convert = require('xml-js');
-var xml = require('fs').readFileSync('./XML/espiSchema.xsd', 'utf8');
-var options = {ignoreComment: true, alwaysChildren: true, spaces: 2, compact: true};
+var xml = require('fs').readFileSync('./XML/tony-energy-xml.xml', 'utf8');
+var options = {ignoreComment: true, alwaysChildren: false, spaces: 4, compact: true /* , ignoreAttributes: true };
 var result = convert.xml2json(xml, options); // or convert.xml2json(xml, options)
 
-
 var jSONData = JSON.parse(result);
+*/
+var xml = require('fs').readFileSync('./XML/tony-energy-xml.xml', 'utf8');
+const util = require('util');
+const espiParser = require('espi-parser');
+const json = espiParser(xml);
 
-fs.writeFile('xml.json', result, finished);
+console.log(util.inspect(json, { depth: Infinity }));
+
+var jSONDATA = JSON.stringify(json);
+
+fs.writeFile('xml.json', jSONDATA, finished);
 
 app.get("/api/xml",function(req,res,next) {
-    res.json(jSONData);
+    res.json(jSONDATA);
 });
 
 function finished() {
